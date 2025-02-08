@@ -28,4 +28,5 @@
 	- Have the alternating white and grey section each take up more space
 	- Have the year and season be on the same line, seperated by a dash, the year goes first.
 - Create the Contact Us page (carter)
+- Learn 15 ASP.NET videos (carter)
  -----------------------------------------------------------------------------

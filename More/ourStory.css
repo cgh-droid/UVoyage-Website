@@ -88,26 +88,24 @@ color: white;
 }
 /* DROPDOWN END*/
 .subpages .subpage:nth-child(odd){
-  background-color: white;
-}
-.subpages .subpage:nth-child(even){
   background-color: whitesmoke;
 }
+.subpages .subpage:nth-child(even){
+  background-color: white;
+}
 .subpages .subpage{
-  margin-top: 10em;
-  margin-bottom: 10em;
   display: flex;
   img{
-    margin-top: 1vw;
-    margin-bottom: 1vw;
+    margin-top: 7.5vw;
+    margin-bottom: 7.5vw;
     margin-left: 15vw;
-    height: 20vw;
     width: calc(100vw/3);
     border-radius: 3em;
   }
   .description{
     display: flex;
     flex-direction: column;
+    justify-items: center;
     margin-left: auto;
     margin-right: auto;
     p{
@@ -116,6 +114,7 @@ color: white;
       align-self: center;
     }
     h1{
+      text-wrap: nowrap;
       margin-bottom: 0em;
       font-size: 40px;
       font-weight: normal;
