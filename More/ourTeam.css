@@ -128,9 +128,6 @@ color: white;
   }
  }
 }
-.lower-section .subpage:nth-child(2n){
-  background-color: #f0f0f0;
-}
 .lower-section{
   display: grid;
   grid-template-columns: auto auto auto;
@@ -140,8 +137,7 @@ color: white;
   padding: 1em;
   img{
     height: 10vw;
-    width: 10vw;
-    border-radius: 100%;
+    width: 8vw;
     margin-right: 0px;
     
   }
