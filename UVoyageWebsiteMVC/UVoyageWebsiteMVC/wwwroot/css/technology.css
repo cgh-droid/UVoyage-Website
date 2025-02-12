@@ -1,0 +1,107 @@
+﻿.subpage {
+    margin-top: 10em;
+    margin-bottom: 10em;
+    display: flex;
+    img
+
+{
+    margin-left: 7.5vw;
+    height: 30vw;
+    width: 50vw;
+    border-radius: 3em;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    p
+
+{
+    margin-left: 1vw;
+    width: 33vw;
+}
+
+h1 {
+    margin-bottom: 0em;
+    margin-left: 1vw;
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.redirect {
+    align-self: flex-end;
+    font-size: 1.25vw;
+    margin-left: 1vw;
+    width: 12vw;
+    height: 3vw;
+}
+
+}
+}
+
+.subpage2 {
+    margin-top: 10em;
+    margin-bottom: 10em;
+    display: flex;
+    img
+
+{
+    margin-right: 5vw;
+    height: 30vw;
+    width: 50vw;
+    border-radius: 3em;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    p
+
+{
+    margin-left: 5vw;
+    width: 25vw;
+    align-self: center;
+}
+
+h1 {
+    margin-left: 5vw;
+    margin-bottom: 0em;
+    font-size: 40px;
+    font-weight: normal;
+}
+
+h2 {
+    margin-left: 5vw;
+}
+
+}
+}
+
+
+.heading-image {
+    img
+
+{
+    border-bottom-right-radius: 50% 10%;
+    border-bottom-left-radius: 50% 10%;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.description {
+    color: white;
+    position: absolute;
+    margin-left: 35vw;
+    margin-top: -15%;
+    font-size: 5vw;
+}
+
+}
+
+.heading {
+    width: 100%;
+}

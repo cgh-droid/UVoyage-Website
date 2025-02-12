@@ -1,0 +1,127 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = UVoyageWebsiteMVC
+build_property.RootNamespace = UVoyageWebsiteMVC
+build_property.ProjectDir = C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/ContactUs/contactUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFVzXGNvbnRhY3RVcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Films/buildYourCharacter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbXNcYnVpbGRZb3VyQ2hhcmFjdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Films/contributeToSociety.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbXNcY29udHJpYnV0ZVRvU29jaWV0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Films/inspiredToLearn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbXNcaW5zcGlyZWRUb0xlYXJuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Films/succeedInLife.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbXNcc3VjY2VlZEluTGlmZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Films/takeCareOfYourself.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsbXNcdGFrZUNhcmVPZllvdXJzZWxmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/IndexRedirects/newestAdditions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhSZWRpcmVjdHNcbmV3ZXN0QWRkaXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/IndexRedirects/whoWeAre.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhSZWRpcmVjdHNcd2hvV2VBcmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/IndexRedirects/whyJoinUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhSZWRpcmVjdHNcd2h5Sm9pblVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/minigame1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/minigame2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/minigame3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lMy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/minigame4.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lNC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/minigame5.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lNS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/More/ourStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9yZVxvdXJTdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/More/ourTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9yZVxvdXJUZWFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Technology/Blender3D.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5vbG9neVxCbGVuZGVyM0QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Technology/fl.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5vbG9neVxmbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Technology/Procreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5vbG9neVxQcm9jcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Technology/visualStudio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5vbG9neVx2aXN1YWxTdHVkaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Github/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-x05aklgh0l

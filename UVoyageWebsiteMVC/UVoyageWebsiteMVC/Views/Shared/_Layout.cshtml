@@ -1,0 +1,68 @@
+﻿   <!-- UVOYAGE HOME PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVoyage Project</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/contactUs.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- DROPDOWN MENU START -->
+    <div class="dropdown-menu">
+        <h1>UVoyage Project</h1>
+        <a asp-controller="Home" asp-action="Index">
+            <div class="dropdown">
+                <button class="dropbtn">Home</button>
+            </div>
+        </a>
+        <div class="dropdown">
+            <button class="dropbtn">Films</button>
+            <div class="dropdown-content">
+                <a asp-controller="Films" asp-action="inspiredToLearn">Be Inspired to Learn</a>
+                <a asp-controller="Films" asp-action="succeedInLife">Succeed In Life</a>
+                <a asp-controller="Films" asp-action="contributeToSociety">Contribute to Society</a>
+                <a asp-controller="Films" asp-action="takeCareOfYourself">Take Care of Yourself</a>
+                <a asp-controller="Films" asp-action="buildYourCharacter">Build Your Character</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Minigames</button>
+            <div class="dropdown-content">
+                <a asp-controller="Minigames" asp-action="minigame1">Minigame #1</a>
+                <a asp-controller="Minigames" asp-action="minigame2">Minigame #2</a>
+                <a asp-controller="Minigames" asp-action="minigame3">Minigame #3</a>
+                <a asp-controller="Minigames" asp-action="minigame4">Minigame #4</a>
+                <a asp-controller="Minigames" asp-action="minigame5">Minigame #5</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Technology</button>
+            <div class="dropdown-content">
+                <a asp-controller="Technology" asp-action="Procreate">Procreate</a>
+                <a asp-controller="Technology" asp-action="Blender3D">Blender3D</a>
+                <a asp-controller="Technology" asp-action="visualStudio">Visual Studio Code</a>
+                <a asp-controller="Technology" asp-action="fl">FL Studio</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">More</button>
+            <div class="dropdown-content">
+                <a asp-controller ="More" asp-action="ourTeam">Our Team</a>
+                <a asp-controller="More" asp-action="ourStory">Our Story</a>
+            </div>
+        </div>
+        <a asp-controller="ContactUs" asp-action="contactUs">
+            <div class="dropdown">
+                <button class="dropbtn">Contact Us</button>
+            </div>
+        </a>
+    </div>
+    @RenderBody()
+</body>
+</html>

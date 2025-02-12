@@ -1,0 +1,83 @@
+﻿hr {
+    font-size: 50px;
+    border: none;
+    border-top: 5px double #333;
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 15px;
+}
+
+.student-divider hr::after {
+    background: #fff;
+    content: 'Students';
+    padding: 0 8px;
+    position: relative;
+    top: -35px;
+}
+
+.teacher-divider hr::after {
+    background: #fff;
+    content: 'Teachers';
+    padding: 0 8px;
+    position: relative;
+    top: -35px;
+}
+
+.student-section, .teacher-section {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    .subpage
+
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    img
+
+{
+    align-self: center;
+    height: 16vw;
+    width: 16vw;
+    border-radius: 100%;
+}
+
+.description {
+    align-self: center;
+    h1
+
+{
+    align-self: center;
+    flex-wrap: nowrap;
+    font-size: 25px;
+    width: 10vw;
+    font-weight: normal;
+}
+
+}
+}
+}
+
+.heading-image {
+    img
+
+{
+    border-bottom-right-radius: 50% 10%;
+    border-bottom-left-radius: 50% 10%;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.description {
+    color: white;
+    position: absolute;
+    margin-left: 37.5%;
+    margin-top: -15%;
+    font-size: 5vw;
+}
+
+}
+
+.heading {
+    width: 100%;
+}
