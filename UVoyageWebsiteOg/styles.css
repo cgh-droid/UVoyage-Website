@@ -30,10 +30,11 @@ body{
   border: none;
 h1{
     margin-right: auto;
+    margin-left: 2vw;
     background-color: #00000000;
     border-color: #00000000;
     font-size: 2vw;
-    font-weight: normal;
+    font-weight: bold;
   }
 }
 .dropbtn {
@@ -218,8 +219,10 @@ h1{
   }
   .description{
     color: white;
+    text-wrap: nowrap;
     position: absolute;
-    margin-left: 36%;
+    margin-right: 50%;
+    margin-left: 23%;
     margin-top: -15%;
     font-size: 5vw;
   }
