@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\css\\contactUs.css"
     },
     {
+      "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\films.css",
+      "PackagePath": "staticwebassets\\css\\films.css"
+    },
+    {
+      "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\minigames.css",
+      "PackagePath": "staticwebassets\\css\\minigames.css"
+    },
+    {
       "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourStory.css",
       "PackagePath": "staticwebassets\\css\\ourStory.css"
     },

@@ -18,6 +18,7 @@ body {
 }
 /* DROPDOWN START*/
 .dropdown-menu {
+    float: left;
     display: flex;
     position: fixed;
     justify-content: flex-end;
@@ -25,13 +26,17 @@ body {
     background-color: white;
     color: black;
     padding: .6vh;
+    padding-right:2vh;
+    padding-left: 2vh;
     font-size: .5vw;
     height: 5vw;
     width: 98vw;
     margin-left: 0%;
     margin-right: 0%;
     border: none;
-    h1
+    z-index: 1000;
+}
+    .dropdown-menu h1
 
 {
     margin-right: auto;
@@ -41,7 +46,6 @@ body {
     font-weight: normal;
 }
 
-}
 
 .dropbtn {
     background-color: #00000000;

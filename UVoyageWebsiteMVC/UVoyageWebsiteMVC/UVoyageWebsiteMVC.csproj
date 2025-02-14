@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\films.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\minigames.css" />
+  </ItemGroup>
+
 </Project>

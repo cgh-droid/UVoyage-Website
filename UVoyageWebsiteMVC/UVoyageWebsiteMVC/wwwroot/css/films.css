@@ -1,0 +1,61 @@
+﻿.subpage {
+    margin: 1rem 10rem;
+}
+
+img {
+    height: calc(50vw * 3/5);
+    width: 45vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3em;
+}
+
+.subpage p {
+    width: 50vw;
+}
+
+
+.subpage .description {
+    margin: 3%;
+    height: 12%;
+}
+
+    .subpage .description p {
+        font-size: x-large;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 5em;
+        text-align: center;
+    }
+
+    .subpage .description h1 {
+        font-size: 40px;
+        font-weight: normal;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        margin-top: 3em;
+        width: 100%;
+    }
+
+.heading-image img {
+    width: 100%;
+    border-bottom-right-radius: 50% 10%;
+    border-bottom-left-radius: 50% 10%;
+    margin-bottom: 30px;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.heading-image .description {
+    color: white;
+    position: absolute;
+    margin-left: 23%;
+    margin-top: -15%;
+    font-size: 5vw;
+}
+
+.heading-image .heading {
+    width: 100%;
+}

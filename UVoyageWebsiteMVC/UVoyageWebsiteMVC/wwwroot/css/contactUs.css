@@ -26,7 +26,8 @@
 
 .student-section, .teacher-section {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-flow: row;
     .subpage
 
 {
@@ -43,15 +44,17 @@
 }
 
 .description {
+    display:block;
     align-self: center;
     h1
 
 {
     align-self: center;
-    flex-wrap: nowrap;
     font-size: 25px;
-    width: 10vw;
+    width: auto;
     font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 }
@@ -76,6 +79,11 @@
     font-size: 5vw;
 }
 
+}
+.subpage .description p {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .heading {
