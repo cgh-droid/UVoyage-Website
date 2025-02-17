@@ -1,4 +1,66 @@
-﻿.subpage {
+﻿.techIntro img {
+    border-radius: 50px;
+    display: inline-block;
+}
+.techIntro {
+    text-align: center;
+    display: inline-block;
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.techIntroContainer {
+    text-align: center;
+    margin:5vw 0;
+}
+.techIntro h1 {
+    display: inline-block;
+    margin-left: 4vw;
+    float:left;
+    margin-top:50px;
+}
+.techIntro p {
+    display: inline-block;
+    float:right;
+    margin-right:4vw;
+    width:15vw;
+    text-align:left;
+}
+
+.oneTech{
+    background-color:whitesmoke;
+    padding:3vw 0;
+    margin-bottom:1vw;
+    display:inline-block;
+    width:100%;
+}
+.oneTechText p{
+    margin-bottom:35px;
+}
+.oneTech a{
+    padding:10px 10px;
+    background-color:black;
+    color:white;
+    font-weight:bold;
+}
+.oneTech img{
+    display:inline-block;
+    float:left;
+    margin-left:10vw;
+    width:calc(100vw/3);
+    height:calc(100vw/6);
+    border-radius:1vw;
+}
+.oneTechText{
+    float:right;
+    display:inline-block;
+    margin-right:10vw;
+    width:20vw;
+}
+.subpage2 img{
+    margin-left:0px;
+}
+.subpage {
     margin-top: 10em;
     margin-bottom: 10em;
     display: flex;
@@ -95,12 +157,10 @@ h2 {
 .description {
     color: white;
     position: absolute;
-    margin-left: 35vw;
     margin-top: -15%;
     font-size: 5vw;
 }
 
-}
 
 .heading {
     width: 100%;

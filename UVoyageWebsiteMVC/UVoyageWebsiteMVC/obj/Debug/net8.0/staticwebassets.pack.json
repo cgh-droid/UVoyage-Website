@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\films.css"
     },
     {
+      "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
       "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\minigames.css",
       "PackagePath": "staticwebassets\\css\\minigames.css"
     },

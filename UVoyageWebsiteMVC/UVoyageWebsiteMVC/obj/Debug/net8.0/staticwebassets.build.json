@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/tqEcJ1xu3zQwnbbxHP+80lGhpUbkVe7ck3pWOb5gs4=",
+  "Hash": "Js2kHCHLfhyVJduCNKAPLdWPxrHPVKDAN2eywpWs0gU=",
   "Source": "UVoyageWebsiteMVC",
   "BasePath": "_content/UVoyageWebsiteMVC",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\films.css"
+    },
+    {
+      "Identity": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\home.css",
+      "SourceId": "UVoyageWebsiteMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\",
+      "BasePath": "_content/UVoyageWebsiteMVC",
+      "RelativePath": "css/home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
       "Identity": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\minigames.css",

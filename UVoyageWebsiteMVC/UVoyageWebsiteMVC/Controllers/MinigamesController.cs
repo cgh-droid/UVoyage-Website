@@ -4,6 +4,10 @@ namespace UVoyageWebsiteMVC.Controllers
 {
     public class MinigamesController : Controller
     {
+        public IActionResult minigameMain()
+        {
+        return View(); 
+        }
         public IActionResult minigame1()
         {
             return View();

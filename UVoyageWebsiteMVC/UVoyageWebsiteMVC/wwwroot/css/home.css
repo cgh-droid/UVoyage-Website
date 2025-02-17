@@ -1,0 +1,15 @@
+﻿.subpage2{
+    padding-top:50px;
+    padding-bottom:50px;
+    background-color:lightgray;
+}
+
+.subpage2 button {
+    background-color:white;
+    color:black;
+}
+
+.subpage button, .subpage3 button {
+    background-color: black;
+    color: white;
+}

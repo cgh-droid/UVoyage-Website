@@ -11,49 +11,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <!-- DROPDOWN MENU START -->
+    @if (ViewData["Title"] != "Playing Minigame"){
     <div class="dropdown-menu">
-        <a asp-controller="Home" asp-action="Index">UVoyage Project</a>
+        <h1><a asp-controller="Home" asp-action="Index">UVoyage Project</a></h1>
         <a asp-controller="Home" asp-action="Index">
             <div class="dropdown">
                 <button class="dropbtn">Home</button>
             </div>
         </a>
+        <a asp-controller="Films" asp-action="filmsMain">
         <div class="dropdown">
             <button class="dropbtn">Films</button>
-            <div class="dropdown-content">
-                <a asp-controller="Films" asp-action="inspiredToLearn">Be Inspired to Learn</a>
-                <a asp-controller="Films" asp-action="succeedInLife">Succeed In Life</a>
-                <a asp-controller="Films" asp-action="contributeToSociety">Contribute to Society</a>
-                <a asp-controller="Films" asp-action="takeCareOfYourself">Take Care of Yourself</a>
-                <a asp-controller="Films" asp-action="buildYourCharacter">Build Your Character</a>
-            </div>
         </div>
-        <div class="dropdown">
-            <button class="dropbtn">Minigames</button>
-            <div class="dropdown-content">
-                <a asp-controller="Minigames" asp-action="minigame1">Minigame #1</a>
-                <a asp-controller="Minigames" asp-action="minigame2">Minigame #2</a>
-                <a asp-controller="Minigames" asp-action="minigame3">Minigame #3</a>
-                <a asp-controller="Minigames" asp-action="minigame4">Minigame #4</a>
-                <a asp-controller="Minigames" asp-action="minigame5">Minigame #5</a>
+        </a>
+        <a asp-controller="Minigames" asp-action="minigameMain">
+            <div class="dropdown">
+                <button class="dropbtn">Minigames</button>
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Technology</button>
-            <div class="dropdown-content">
-                <a asp-controller="Technology" asp-action="Procreate">Procreate</a>
-                <a asp-controller="Technology" asp-action="Blender3D">Blender3D</a>
-                <a asp-controller="Technology" asp-action="visualStudio">Visual Studio Code</a>
-                <a asp-controller="Technology" asp-action="fl">FL Studio</a>
+        </a>
+        <a asp-controller="Technology" asp-action="technologyMain">
+            <div class="dropdown">
+                <button class="dropbtn">Technology</button>
+
             </div>
-        </div>
+        </a>
         <div class="dropdown">
             <button class="dropbtn">More</button>
             <div class="dropdown-content">
-                <a asp-controller ="More" asp-action="ourTeam">Our Team</a>
+                <a asp-controller="More" asp-action="ourMembers">Our Members</a>
+                <a asp-controller ="More" asp-action="ourTeams">Our Team</a>
                 <a asp-controller="More" asp-action="ourStory">Our Story</a>
             </div>
         </div>
@@ -63,9 +54,19 @@
             </div>
         </a>
     </div>
+    }
     @RenderBody()
+    @if (ViewBag.Title != "Playing Minigame"){
     <footer>
-        
+        <div class="footerin">
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <p>Follow Us:</p>            
+            <p class="footertitle">The UVoyage Project</p>
+            <i class="fa fa-instagram" style="font-size:36px"></i>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
     </footer>
+    }
+
 </body>
 </html>

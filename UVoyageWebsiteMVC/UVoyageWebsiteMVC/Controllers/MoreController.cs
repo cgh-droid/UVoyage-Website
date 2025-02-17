@@ -8,7 +8,11 @@ namespace UVoyageWebsiteMVC.Controllers
         {
             return View();
         }
-        public IActionResult ourTeam()
+        public IActionResult ourTeams()
+        {
+            return View();
+        }
+        public IActionResult ourMembers()
         {
             return View();
         }

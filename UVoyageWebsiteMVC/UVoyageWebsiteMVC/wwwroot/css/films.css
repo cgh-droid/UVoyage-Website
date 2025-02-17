@@ -51,11 +51,29 @@ img {
 .heading-image .description {
     color: white;
     position: absolute;
-    margin-left: 23%;
     margin-top: -15%;
     font-size: 5vw;
 }
 
 .heading-image .heading {
     width: 100%;
+}
+.allFilms {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    font-size:.8vw;
+}
+.oneFilm {
+    align-content: center;
+    text-align:center;
+    margin-left: 15vw;
+    margin-bottom:3vw;
+}
+.filmImg {
+    width: calc(100vw/8);
+    height: calc(100vw/6);
+    border-radius: 0px;
+    justify-content: center;
+    margin-bottom:.5vw;
 }

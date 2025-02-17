@@ -36,9 +36,15 @@ body {
     border: none;
     z-index: 1000;
 }
-    .dropdown-menu h1
+
+a{
+    text-decoration:none;
+    color:initial;
+}
+.dropdown-menu h1
 
 {
+    text-decoration:none;
     margin-right: auto;
     background-color: #00000000;
     border-color: #00000000;
@@ -265,7 +271,10 @@ h1 {
 .description {
     color: white;
     position: absolute;
-    margin-left: 36%;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
     margin-top: -15%;
     font-size: 5vw;
 }
@@ -274,4 +283,25 @@ h1 {
 
 .heading {
     width: 100%;
+}
+
+footer{
+    background-color:whitesmoke;
+    margin-bottom:6vw;
+}
+
+.footerin{
+    margin-left:10vw;
+    vertical-align:top;
+}
+i{
+    width:100%;
+}
+.footerin p{
+    display: inline-block;
+}
+.footertitle{
+    margin-right:10vw;
+    float:right;
+    display:inline-block;
 }

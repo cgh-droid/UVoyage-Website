@@ -4,6 +4,7 @@ namespace UVoyageWebsiteMVC.Controllers
 {
     public class FilmsController : Controller
     {
+        public IActionResult filmsMain() { return View(); }
         public IActionResult buildYourCharacter()
         {
             return View();

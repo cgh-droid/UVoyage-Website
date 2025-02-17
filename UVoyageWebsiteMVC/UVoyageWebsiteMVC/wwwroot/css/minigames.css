@@ -55,7 +55,6 @@ p {
 .description {
     color: white;
     position: absolute;
-    margin-left: 28%;
     margin-top: -15%;
     font-size: 5vw;
 }
@@ -64,4 +63,20 @@ p {
 
 .heading {
     width: 100%;
+}
+
+.minigameIn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+}
+.minigameBtn{
+    padding:8px 12px 8px 12px;
+    margin-left: 50px;
+    background-color:darkblue;
+    border-radius:5px;
+    color:lightblue;
+    font-size:50px;
 }
