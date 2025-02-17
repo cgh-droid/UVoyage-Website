@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\css\\ourTeam.css"
     },
     {
+      "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeams.css",
+      "PackagePath": "staticwebassets\\css\\ourTeams.css"
+    },
+    {
       "Id": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

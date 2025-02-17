@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Js2kHCHLfhyVJduCNKAPLdWPxrHPVKDAN2eywpWs0gU=",
+  "Hash": "EAc1IPbFPs1hQHXh4DGZnLqERHOhMrB28md0KIDRA04=",
   "Source": "UVoyageWebsiteMVC",
   "BasePath": "_content/UVoyageWebsiteMVC",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\ourTeam.css"
+    },
+    {
+      "Identity": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeams.css",
+      "SourceId": "UVoyageWebsiteMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\",
+      "BasePath": "_content/UVoyageWebsiteMVC",
+      "RelativePath": "css/ourTeams.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ourTeams.css"
     },
     {
       "Identity": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\site.css",

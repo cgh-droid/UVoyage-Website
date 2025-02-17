@@ -3,7 +3,7 @@
 }
 .upper-section .subpage {
     display: flex;
-    margin-left: 15em;
+    margin-left: 8.5vw;
     margin-bottom: 5em;
 }
 .upper-section .subpage img {
@@ -70,4 +70,3 @@
 .subpage img{
     border-radius:0px;
 }
-
