@@ -102,46 +102,24 @@ hr {
   height: 15px;
 }
 
-.student-divider hr::after {
-  background: #fff;
-  content: 'Students';
-  padding: 0 8px;
-  position: relative;
-  top: -35px;
-}
-.teacher-divider hr::after {
-  background: #fff;
-  content: 'Teachers';
-  padding: 0 8px;
-  position: relative;
-  top: -35px;
-}
-.student-section, .teacher-section{
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-
-  .subpage{
+form{
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  img{
-    align-self: center;
-    height: 16vw;
-    width: 16vw;
-    border-radius: 100%;
-    
-  }
-  .description{
-    align-self: center;
-    h1{
-      align-self: center;
-      flex-wrap: nowrap;
-      font-size: 25px;
-      width: 10vw;
-      font-weight: normal;
+  align-items: center;
+  .input-section{
+    margin-top: .5vw;
+    margin-bottom: .5vw;
+    input, button{
+      width: 15vw;
+      height: 2vw;
+      font-size: 1vw;
+    }
+    textarea{
+      width: 15vw;
+      height: 5vw;
+      font-size: 1vw;
     }
   }
- }
 }
 .heading-image{
 img{
