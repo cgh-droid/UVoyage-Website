@@ -91,10 +91,10 @@ margin: 0px;
   color: #000;
 }
 /* DROPDOWN END*/
-.subpages .subpage:nth-child(odd){
+.subpages .subpage:nth-child(even){
   background-color: whitesmoke;
 }
-.subpages .subpage:nth-child(even){
+.subpages .subpage:nth-child(odd){
   background-color: white;
 }
 .subpages .subpage{
