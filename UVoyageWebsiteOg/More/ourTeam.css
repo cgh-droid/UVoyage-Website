@@ -92,13 +92,34 @@ margin: 0px;
 }
 /* DROPDOWN END*/
 .intro{
-  h1{
-    text-align: center;
+  margin-top: -5vw;
     color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f1f1f1;
     text-decoration: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    border-bottom-right-radius: 50% 10%;
+    border-bottom-left-radius: 50% 10%;
+    .team{
+      font-size: 1vw;
+      b{
+        font-size: 1.5vw;
+      }
+      padding-top: 6vw;
+      padding-bottom: 0vw;
+      text-align: center;
+      width: 30vw;
+    }
+    .team:nth-child(4),.team:nth-child(5){
+      padding-top: -2vw;
+      padding-bottom: .5vw;
+      margin-bottom: .5vw;
+      text-align: center;
+      width: 30vw;
+    }
 }
 
 .upper-section{
