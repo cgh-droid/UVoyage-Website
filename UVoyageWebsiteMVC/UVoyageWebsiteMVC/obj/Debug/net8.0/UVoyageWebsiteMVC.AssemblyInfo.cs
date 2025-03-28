@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UVoyageWebsiteMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43626f3e7b396ccce21aa1d9759a8cf817b38ae4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1262f9d198e8affe5c67c6e55a3598ec4d2accf1")]
 [assembly: System.Reflection.AssemblyProductAttribute("UVoyageWebsiteMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UVoyageWebsiteMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
