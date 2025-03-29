@@ -23,10 +23,10 @@ body {
     position: fixed;
     justify-content: flex-end;
     align-items: center;
-    background-color: white;
-    color: black;
+    background-color: rgba(0, 0, 0, 0.301);
+    color: white;
     padding: .6vh;
-    padding-right:2vh;
+    padding-right: 2vh;
     padding-left: 2vh;
     font-size: .5vw;
     height: 5vw;
@@ -41,9 +41,14 @@ a{
     text-decoration:none;
     color:initial;
 }
+.dropdown-menu a {
+    text-decoration: none;
+    color: white;
+}
 .dropdown-menu h1
 
 {
+    color:white !important;
     text-decoration:none;
     margin-right: auto;
     background-color: #00000000;
@@ -55,7 +60,7 @@ a{
 
 .dropbtn {
     background-color: #00000000;
-    color: black;
+    color: white;
     padding: .5vw;
     font-size: 1vw;
     border: none;
@@ -285,23 +290,45 @@ h1 {
     width: 100%;
 }
 
-footer{
-    background-color:whitesmoke;
-    margin-bottom:6vw;
+footer {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    background-color: whitesmoke;
+    margin-bottom: 6vw;
+    display: flex;
+    align-items: center;
+    gap: 9.6vw;
+    padding-left: 1vw;
 }
 
 .footerin{
-    margin-left:10vw;
     vertical-align:top;
 }
 i{
     width:100%;
 }
-.footerin p{
-    display: inline-block;
+.oneSubject h2{
+    font-size:1.05vw;
+    margin-bottom:15px;
 }
-.footertitle{
-    margin-right:10vw;
+.oneSubject {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 3vw;
+}
+.oneSubject a{
+    font-size:0.85vw;
+    margin-bottom:5px;
+    text-underline-offset:3px;
+    text-decoration:underline;
+    color:black;
+    display:block;
+}
+
+.oneSubject a:hover{
+    cursor:pointer;
+}
+.floatRight{
     float:right;
-    display:inline-block;
+    margin-left:10vw;
 }

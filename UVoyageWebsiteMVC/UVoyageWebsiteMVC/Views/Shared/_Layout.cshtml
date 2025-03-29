@@ -58,13 +58,49 @@
     @RenderBody()
     @if (ViewBag.Title != "Playing Minigame"){
     <footer>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <div class="footerin">
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <p>Follow Us:</p>            
-            <p class="footertitle">The UVoyage Project</p>
+            <p>Follow Us:</p>
             <i class="fa fa-instagram" style="font-size:36px"></i>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
-        </div>
+            </div>
+
+            <div class="floatRight">
+                <div class="oneSubject">
+                    <h2>FILMS</h2>
+                    <a asp-controller="Films" asp-action="inspiredToLearn">Be Inspired to Learn</a>
+                    <a asp-controller="Films" asp-action="succeedInLife">Succeed In Life</a>
+                    <a asp-controller="Films" asp-action="contributeToSociety">Contribute to Society</a>
+                    <a asp-controller="Films" asp-action="takeCareOfYourself">Take Care of Yourself</a>
+                    <a asp-controller="Films" asp-action="buildYourCharacter">Build Your Character</a>
+                </div>
+                <div class="oneSubject">
+                    <h2>MINIGAMES</h2>
+                    <a asp-controller="Minigames" asp-action="minigame1">Minigame #1</a>
+                    <a asp-controller="Minigames" asp-action="minigame2">Minigame #2</a>
+                    <a asp-controller="Minigames" asp-action="minigame3">Minigame #3</a>
+                    <a asp-controller="Minigames" asp-action="minigame4">Minigame #4</a>
+                    <a asp-controller="Minigames" asp-action="minigame5">Minigame #5</a>
+                </div>
+                <div class="oneSubject">
+                    <h2>TECHNOLOGY</h2>
+                    <a asp-controller="Technology" asp-action="Procreate">Procreate</a>
+                    <a asp-controller ="Technology" asp-action="Blender3D">Blender3D</a>
+                    <a asp-controller="Technology" asp-action="visualStudio">Visual Studio Code</a>
+                    <a asp-controller="Technology" asp-action="fl">FL Studio</a>
+                </div>
+                <div class="oneSubject">
+                    <h2>MORE</h2>
+                    <a asp-controller="More" asp-action="ourMembers">Our Members</a>
+                    <a asp-controller="More" asp-action="ourTeams">Our Teams</a>
+                    <a asp-controller="More" asp-action="ourStory">Our Story</a>
+                </div>
+                <div class="oneSubject">
+                    <h2>CONTACT US</h2>
+                    <a asp-controller="ContactUs" asp-action="contactUs">Students and Teachers</a>
+                </div>
+            </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
     </footer>
     }
 
