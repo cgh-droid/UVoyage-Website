@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\ourteams.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\ourteams.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\views\\more\\ourteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\views\\more\\ourteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\ourteam.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\ourteam.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\views\\more\\ourmembers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\views\\more\\ourmembers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -13,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -33,22 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\controllers\\technologycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\controllers\\technologycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\ourteam.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\ourteam.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\views\\more\\ourmembers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\views\\more\\ourmembers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\ourteams.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\wwwroot\\css\\ourteams.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\views\\more\\ourteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|solutionrelative:uvoyagewebsitemvc\\views\\more\\ourteams.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4591FF49-0CC0-4A1A-B83B-0FCAC8062A1B}|UVoyageWebsiteMVC\\UVoyageWebsiteMVC.csproj|c:\\github\\uvoyage-website\\uvoyagewebsitemvc\\uvoyagewebsitemvc\\wwwroot\\css\\ourstory.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -170,56 +170,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAkwEUAAABJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-11T01:27:12.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "newestAdditions.cshtml",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T00:41:01.379Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAABAAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-11T01:41:31.013Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TechnologyController.cs",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T02:05:17.567Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "home.css",
               "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\home.css",
               "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\wwwroot\\css\\home.css",
@@ -244,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ContactUsController.cs",
               "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Controllers\\ContactUsController.cs",
               "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Controllers\\ContactUsController.cs",
@@ -252,12 +203,11 @@
               "RelativeToolTip": "UVoyageWebsiteMVC\\Controllers\\ContactUsController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T01:00:07.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-12T01:00:07.013Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\wwwroot\\css\\site.css",
@@ -270,15 +220,103 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
+              "Title": "ourTeams.cshtml",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T04:02:46.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ourMembers.cshtml",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-17T04:05:26.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ourTeam.css",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-17T04:26:55.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ourTeams.css",
               "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeams.css",
               "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\wwwroot\\css\\ourTeams.css",
               "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeams.css",
               "RelativeToolTip": "UVoyageWebsiteMVC\\wwwroot\\css\\ourTeams.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAZAAAA",
+              "ViewState": "AQIAALQAAAAAAAAAAAAAAL8AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-02-17T04:47:24.936Z"
+              "WhenOpened": "2025-02-17T04:47:24.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TechnologyController.cs",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\Controllers\\TechnologyController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T02:05:17.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAABAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T01:41:31.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "newestAdditions.cshtml",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\IndexRedirects\\newestAdditions.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T00:41:01.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAkwEUAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-11T01:27:12.135Z"
             },
             {
               "$type": "Document",
@@ -330,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "technology.css",
               "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\technology.css",
               "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\wwwroot\\css\\technology.css",
@@ -339,42 +377,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-02-16T06:25:07.734Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ourTeams.cshtml",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\More\\ourTeams.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-17T04:02:46.369Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ourMembers.cshtml",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\Views\\More\\ourMembers.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-17T04:05:26.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ourTeam.css",
-              "DocumentMoniker": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
-              "RelativeDocumentMoniker": "UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
-              "ToolTip": "C:\\Github\\UVoyage-Website\\UVoyageWebsiteMVC\\UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
-              "RelativeToolTip": "UVoyageWebsiteMVC\\wwwroot\\css\\ourTeam.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-02-17T04:26:55.53Z"
             },
             {
               "$type": "Document",
