@@ -59,3 +59,4 @@ C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC\obj\Debug\net8.0\r
 C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC\obj\Debug\net8.0\UVoyageWebsiteMVC.pdb
 C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC\obj\Debug\net8.0\UVoyageWebsiteMVC.genruntimeconfig.cache
 C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC\obj\Debug\net8.0\ref\UVoyageWebsiteMVC.dll
+C:\Github\UVoyage-Website\UVoyageWebsiteMVC\UVoyageWebsiteMVC\bin\Debug\net8.0\libman.json

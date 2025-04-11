@@ -4,98 +4,45 @@
         UVOYAGE
     </div>
 </div>
-<div class="student-divider">
-    <hr />
-</div>
-<div class="student-section">
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
+<form action="https://httpbin.org/post" class="email-form" method="post">
+    <div class="wrapper">
+        <div class="input-section first">
+            <h2>Name</h2>
+            <input type="text" name="name" required>
+        </div>
+        <div class="input-section second">
+            <h2>Topic</h2>
+            <input type="text" name="subject" required>
         </div>
     </div>
-
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
+    <div class="input-section selection">
+        <h2>Send To</h2>
+        <select id="our-emails" name="our-emails" data-placeholder="No recipient(s) selected" multiple class="chosen-select">
+            <option value="qii25@ucfsd.net">qii25@ucfsd.net</option>
+            <option value="psheehan@ucfsd.net">psheehan@ucfsd.net</option>
+            <option value="boals26@ucfsd.net">boals26@ucfsd.net</option>
+            <option value="hawkinsc27@ucfsd.net">hawkinsc27@ucfsd.net</option>
+        </select>
     </div>
 
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
+
+    <div class="input-section widen">
+        <h2>Message</h2>
+        <textarea placeholder="Type your message here..." rows="20" cols="30" name="message" required></textarea>
     </div>
 
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
+    <div class="input-section">
+        <button type="submit">Send</button>
     </div>
+</form>
 
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
-    </div>
-
-</div>
-<div class="teacher-divider">
-    <hr />
-</div>
-
-<div class="teacher-section">
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
-    </div>
-
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
-    </div>
-
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
-    </div>
-
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
-    </div>
-
-    <div class="subpage">
-        <img src="~/Photos/IMG_1193.jpg">
-        <div class="description">
-            <h1>Mr. Sheehan</h1>
-            <p class="email">email@email.com</p>
-        </div>
-    </div>
-</div>
 @section Styles {
-
     <link rel="stylesheet" href="~/css/contactUs.css" />
-
+}
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+        });
+    </script>
 }
