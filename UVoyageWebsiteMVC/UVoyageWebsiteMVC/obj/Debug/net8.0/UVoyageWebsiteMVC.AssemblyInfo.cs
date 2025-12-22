@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UVoyageWebsiteMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61bb19df646c57f4f051a149c1aa0e62f2137288")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db55311db6c9a7443d0301344dfe41e5985f16bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("UVoyageWebsiteMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UVoyageWebsiteMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

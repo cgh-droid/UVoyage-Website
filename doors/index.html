@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <body>
-    <img src="doors.png">
-    <img src="man.png">
+  <img class="doors" src="doors.png">
+  <img class="man" src="man.png" style="left: 0; bottom: 0">
 </body>
 <style>
     img {
-  position: absolute;
-  top: 25px;
-  left: 25px;
-}
-.imgA1 {
-  z-index: 1;
-}
-.imgB1 {
-  z-index: 3;
-}
+      position: absolute;
+    }
+  .doors {
+    z-index: 1;
+  }
+  .man {
+    z-index: 3;
+    position: relative;
+    transition: 0.1s linear;
+  }
 </style>
+<script>
+  const man = document.querySelector(".man");
+    let speed = 5;
+
+    const toNum = (pxVal) => {
+      return parseInt(pxVal, 10);
+    };
+    const handleMovement = (e) => {
+        let left = toNum(man.style.left);
+        const bottom = toNum(man.style.bottom);
+
+        switch (e.key) {
+            case 'a':
+                if (left <= 0) return (man.style.left = 0);
+                man.style.left = left - speed + 'px';
+                break;
+            case 'd':
+                if (left >= 800) return (man.style.left = 800);
+                man.style.left = left + speed + 'px';
+                break;
+            case 'w':
+                if (bottom >= 0) return (man.style.bottom = 0);
+                man.style.bottom = bottom + speed + 'px';
+                break;
+            case 's':
+                if (bottom <= -400) return (man.style.bottom = -400);
+                man.style.bottom = bottom - speed + 'px';
+                break;
+        }
+    };
+    window.addEventListener('keydown', handleMovement);
+</script>
