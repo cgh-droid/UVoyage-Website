@@ -1,0 +1,521 @@
+﻿@{
+    ViewData["Title"] = "Playing Minigame";
+}
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --hue-neutral: 200;
+        --hue-wrong: 0;
+        --hue-correct: 145;
+    }
+
+    body {
+        --hue: var(--hue-neutral);
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: right;
+        align-items: center;
+        background-color: hsl(var(--hue), 100%, 20%);
+    }
+
+/*         body.correct {
+            --hue: var(--hue-correct);
+        }
+
+        body.wrong {
+            --hue: var(--hue-wrong);
+        } */
+
+    .container {
+        width: 800px;
+        max-width: 50%;
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 10px 2px;
+        margin-right: 5%;
+        z-index: 2;
+        position: absolute;
+    }
+
+    .btn-grid {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .btn {
+        --hue: var(--hue-neutral);
+        border: 1px solid hsl(var(--hue), 100%, 30%);
+        background-color: hsl(var(--hue), 100%, 50%);
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white;
+        outline: none;
+    }
+
+        .btn:hover {
+            border-color: black;
+        }
+
+/*         .btn.correct {
+            --hue: var(--hue-correct);
+            color: black;
+        }
+
+        .btn.wrong {
+            --hue: var(--hue-wrong);
+        } */
+
+    .start-btn, .next-btn {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 10px 20px;
+    }
+
+    .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    * {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    #bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    #myVideo {
+        z-index: -1;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .textbox {
+        font-family: sans-serif;
+        font-size: 1vw;
+        font-weight: bold;
+        color: aliceblue;
+        background-image: linear-gradient(to right, darkturquoise, deepskyblue,dodgerblue);
+        width: 50vw;
+        height: 5vw;
+        border-radius: 20px;
+        padding: 0.75vw;
+        text-align: left;
+    }
+
+    .textbox-container {
+        z-index: 2;
+        position: absolute;
+        top: 75%;
+        left: 50vh;
+    }
+
+    .convo-container {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .textbox-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+    #next-button {
+        background-color: deepskyblue;
+        border-radius: 7px;
+        border-width: 1px;
+    }
+
+    #speaker-name {
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(to right, rgb(255 162 50), rgb(255, 200, 111));
+        width: fit-content;
+        text-align: center;
+        margin: 10px auto;
+        color: aliceblue;
+    }
+</style>
+<div class="convo-container convo">
+    <div class="textbox-container convo">
+        <h3 id="speaker-name" class="convo"><b></b></h3>
+        <div class="textbox convo"></div>
+        <div class="textbox-buttons">
+            <input type="range" min="1" max="100" value="50" id="speed" class="convo">
+            <button id="next-button" onclick="showText()">Next</button>
+        </div>
+    </div>
+    <img id="bg-img" src="" />
+</div>
+<div class="container game">
+    <div id="question-container" class="hide">
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
+        </div>
+    </div>
+    <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
+    </div>
+</div>
+<video autoplay muted loop id="myVideo" class="game">
+    <source src="~/Photos/Ss game sketch.mp4" type="video/mp4">
+</video>
+<script>
+    const startButton = document.getElementById('start-btn')
+    const nextGameButton = document.getElementById('next-btn')
+    const questionContainerElement = document.getElementById('question-container')
+    const questionElement = document.getElementById('question')
+    const answerButtonsElement = document.getElementById('answer-buttons')
+    let score = 0
+    let shuffledQuestions, currentQuestionIndex
+
+    startButton.addEventListener('click', startGame)
+    nextGameButton.addEventListener('click', () => {
+      currentQuestionIndex++
+      setNextQuestion()
+    })
+
+    function startGame() {
+      startButton.classList.add('hide')
+      shuffledQuestions = questions.sort(() => Math.random() - .5)
+      currentQuestionIndex = 0
+      questionContainerElement.classList.remove('hide')
+      setNextQuestion()
+    }
+
+    function setNextQuestion() {
+      resetState()
+      showQuestion(shuffledQuestions[currentQuestionIndex])
+    }
+
+    // function showQuestion(question) {
+    //   questionElement.innerText = question.question
+    //   question.answers.forEach(answer => {
+    //     const button = document.createElement('button')
+    //     button.innerText = answer.text
+    //     button.classList.add('btn')
+    //     if (answer.correct) {
+    //       button.dataset.correct = answer.correct
+    //     }
+    //     button.addEventListener('click', selectAnswer)
+    //     answerButtonsElement.appendChild(button)
+    //   })
+    // }
+        function showQuestion(question) {
+      questionElement.innerText = question.question
+
+      question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        button.disabled = false
+
+        if (answer.correct) {
+          button.dataset.correct = "true"
+        }
+
+        button.addEventListener('click', selectAnswer)
+        answerButtonsElement.appendChild(button)
+      })
+    }
+    function resetState() {
+      clearStatusClass(document.body)
+      nextGameButton.classList.add('hide')
+      while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+      }
+    }
+
+    // function selectAnswer(e) {
+    //   const selectedButton = e.target
+    //   const correct = selectedButton.dataset.correct
+    //   setStatusClass(document.body, correct)
+    //   Array.from(answerButtonsElement.children).forEach(button => {
+    //     setStatusClass(button, button.dataset.correct)
+    //   })
+    //   if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    //     nextGameButton.classList.remove('hide')
+    //   } else {
+    //     startButton.innerText = 'Restart'
+    //     startButton.classList.remove('hide')
+    //     introDone=true;
+    //     toggleToConvo();
+    //   }
+    // }
+    function selectAnswer(e) {
+      const selectedButton = e.target
+      const correct = selectedButton.dataset.correct === "true"
+
+      if (correct) {
+        score++
+        console.log(score + " right")
+      } else {
+        console.log(score + " wrong")
+      }
+
+      Array.from(answerButtonsElement.children).forEach(button => {
+        button.disabled = true
+        setStatusClass(button, button.dataset.correct === "true")
+      })
+
+      if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        nextGameButton.classList.remove('hide')
+      } else {
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
+        introDone = true
+        toggleToConvo()
+      }
+    }
+
+    function setStatusClass(element, correct) {
+      clearStatusClass(element)
+      if (correct) {
+        element.classList.add('correct')
+      } else {
+        element.classList.add('wrong')
+      }
+    }
+
+    function clearStatusClass(element) {
+      element.classList.remove('correct')
+      element.classList.remove('wrong')
+    }
+
+    const questions = [
+      {
+        question: 'Who was not a founding father?',
+        answers: [
+          { text: 'A. Benjamin Franklin', correct: false },
+          { text: 'B. George Washington', correct: false },
+          { text: 'C. John Adams', correct: false },
+          { text: 'D. Andrew Jackson', correct: true }
+        ]
+      },
+      {
+        question: 'Who was not a president?',
+        answers: [
+          { text: 'A. Benjamin Franklin', correct: false },
+          { text: 'B. George Washington', correct: false },
+          { text: 'C. John Adams', correct: false },
+          { text: 'D. Andrew Jackson', correct: true }
+        ]
+      },
+      {
+        question: 'Which battle ended the American Revolutionary War?',
+        answers: [
+          { text: 'A. Siege of Yorktown', correct: true },
+          { text: 'B. Battle of Saratoga', correct: false },
+          { text: 'C. Battle of Trenton', correct: false },
+          { text: 'D. Battle of Brandywine', correct: false }
+        ]
+      },
+      {
+        question: 'What is the supreme law of the land?',
+        answers: [
+          { text: 'A. The Constitution', correct: true },
+          { text: 'B. The Declaration of Independence', correct: false }
+        ]
+      },
+      {
+        question: 'What is not a right in the Declaration of Independence?',
+        answers: [
+          { text: 'A. Life', correct: false },
+          { text: 'B. Liberty', correct: false },
+          { text: 'C. Prosperity', correct: true },
+          { text: 'D. Pursuit of happiness', correct: false }
+        ]
+      },
+      {
+        question: 'What weakness did the Articles of Confederation have?',
+        answers: [
+          { text: 'A. Too much presidential power', correct: false },
+          { text: 'B. No national army or strong central government', correct: true },
+          { text: 'C. No taxes', correct: false },
+          { text: 'D. Too much control over states', correct: false }
+        ]
+      },
+      {
+        question: 'Who is the most important writer of the Declaration of Independence?',
+        answers: [
+          { text: 'A. George Washington', correct: false },
+          { text: 'B. Thomas Jefferson', correct: true },
+          { text: 'C. James Madison', correct: false },
+          { text: 'D. John Jay', correct: false }
+        ]
+      },
+      {
+        question: 'What year was the Declaration of Independence adopted?',
+        answers: [
+          { text: 'A. 1646', correct: false },
+          { text: 'B. 1743', correct: false },
+          { text: 'C. 1776', correct: true },
+          { text: 'D. 1693', correct: false }
+        ]
+      },
+      {
+        question: 'What was the main purpose of the Constitutional Convention?',
+        answers: [
+          { text: 'A. To declare independence from Britain', correct: false },
+          { text: 'B. To create a stronger national government', correct: true },
+          { text: 'C. To elect the first president', correct: false },
+          { text: 'D. To end the Revolutionary War', correct: false }
+        ]
+      },
+      {
+        question: 'What political party was George Washington?',
+        answers: [
+          { text: 'A. Republican', correct: false },
+          { text: 'B. Democrat', correct: false },
+          { text: 'C. Federalist', correct: false },
+          { text: 'D. None', correct: true }
+        ]
+      },
+    ]
+    function toggleToConvo(){
+        console.log("convo")
+        gameElements.forEach(el => {
+        el.style.display = 'none';
+        });
+        convoElements.forEach(el => {
+        el.style.display ='block';
+        });
+        if (introDone){
+            dialogue = [
+            {name: "Narrator", speech:"You walk over to your teacher to submit your quiz.",bgImg: "/Photos/Ss talk giving quiz sketch.png"},
+            {name: "Narrator", speech:"He then gestures you to stay where you are and grades your quiz on the spot.",bgImg: "/Photos/Ss talk grading sketch.png"},
+            {name: "Narrator", speech:"After a couple minutes, he circles your answer in red ink and hands your paper back.",bgImg: "/Photos/Ss talk showing grade sketch.png"},
+            {name: "Narrator", speech:"It reads "+score+"/10.",bgImg: "/Photos/Ss talk showing grade sketch.png"},
+            (score>6) ? {name: "Teacher", speech:"Nice job, Blue! You're a rockstar!",bgImg: "/Photos/Ss talk showing grade sketch.png"} : {name: "Teacher", speech:"Good job, I'm sure you tried your best. Don't beat yourself up over it.",bgImg: "/Photos/Ss talk showing grade sketch.png"},
+            (score>6) ? {name: "Narrator", speech:"You smile, say your thanks, and head back to your seat.",bgImg: "/Photos/Ss talk showing grade sketch.png"} : {name: "Narrator", speech:"You bring yourself to nod and head back to your seat.",bgImg: "/Photos/Ss talk showing grade sketch.png"},
+            (score>6) ? {name: "Narrator", speech:"You do your thing until the bell rings.",bgImg: "/Photos/Ss talk grading other kid sketch.png"} : {name: "Narrator", speech:"You do your thing until the bell rings. The low score clouds your head a little however. Maybe you should try reflecting on the quiz.",bgImg: "/Photos/Ss talk grading other kid sketch.png"},
+            (score>6) ? {name: "Narrator", speech:"Whether if that was the result of your attentiveness...",bgImg: "/Photos/Ss talk grading other kid sketch.png"} : {name: "Narrator", speech:"First off, it wasn't your fault you weren't expecting the quiz.",bgImg: "/Photos/Ss talk grading other kid sketch.png"},
+            (score>6) ? {name: "Narrator", speech:"...(or just pure luck)...",bgImg: "/Photos/Ss talk grading other kid sketch.png"} : {name: "Narrator", speech:"The best thing you can do about this in the future is keeping your eye on important concepts in class.",bgImg: "/Photos/Ss talk grading other kid sketch.png"},
+            (score>6) ? {name: "Narrator", speech:"...you should be proud of yourself!",bgImg: "/Photos/Ss talk grading other kid sketch.png"} : {name: "Narrator", speech:"Yesterday was the best day to improve but the next best day is today.",bgImg: "/Photos/Ss talk grading other kid sketch.png"},
+            {name: "Bell", speech:"RIIIIIIIIING",bgImg: "/Photos/bell sketch.png"}
+            ];
+            if(score>6){
+                localStorage.setItem("socialStudiesGood", "true");
+                console.log(localStorage.getItem("socialStudiesGood"));
+            }
+            localStorage.setItem("socialStudiesDone", "true");
+            showText();
+        }else{
+            dialogue = [
+                {name: "Teacher", speech:"Hello everyone.", bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Class", speech:"Hello!",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"To start class today, I have a laid back question and a not-so-laid back rhetorical question. Which would you guys like to hear first?",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Classmate 1", speech:"Maybe the laid back one first...?",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"Do you all like popcorn?",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Classmate 1", speech:"Yeah!",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Classmate 2", speech:"Only buttered popcorn.",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Blue", speech:"Are we going to eat popcorn?",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"Yes!",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Narrator", speech:"The whole class starts whispering about the popcorn party that is to come.",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"Only after I ask my second question.",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Class", speech:"...",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"Do you all like pop quizzes?",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Class", speech:"...",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Classmate 2", speech:"Are we going to have a pop quiz?",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"Yep, our very first pop quiz of the year.",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Class", speech:".......",bgImg: "/Photos/Ss talk announce sketch.png"},
+                {name: "Teacher", speech:"It's going to be alright, you guys.",bgImg: "/Photos/Ss talk one sketch.png"},
+                {name: "Teacher", speech:"The quiz is about the American history we learned about this chapter.",bgImg: "/Photos/Ss talk one sketch.png"},
+                {name: "Teacher", speech:"I'm sure you'll do great!",bgImg: "/Photos/Ss talk two sketch.png"},
+                {name: "Teacher", speech:"Also, this probably won't take more than 20 minutes, but you'll have the whole period.",bgImg: "/Photos/Ss talk two sketch.png"},
+                {name: "Teacher", speech:"I'll probably even finish grading these before then!",bgImg: "/Photos/Ss talk three sketch.png"},
+                {name: "Teacher", speech:"When I give you your quiz, feel free to just start answering.",bgImg: "/Photos/Ss talk three sketch.png"},
+                {name: "Teacher", speech:"Good luck everyone.",bgImg: "/Photos/Ss talk three sketch.png"},
+            ]
+        }
+    }
+            const bgImg = document.getElementById("bg-img");
+        const nextButton = document.getElementById("next-button");
+
+
+
+        let introDone=false;
+        const gameElements = document.querySelectorAll('.game');
+        const convoElements = document.querySelectorAll('.convo');
+        function toggleToGame(){
+            console.log("game")
+            gameElements.forEach(el => {
+            el.style.display ='block' ;
+            });
+            convoElements.forEach(el => {
+            el.style.display = 'none';
+            });
+        }
+        toggleToConvo();
+        let currentDialogue = '';
+        let dialogueIndex=0;
+        function nextDialogue(){
+            if(dialogueIndex < dialogue.length){
+                bgImg.src = dialogue[dialogueIndex].bgImg;
+                if(currentDialogue ==''){
+                    currentDialogue = dialogue[0];
+                }else{
+                    currentDialogue=dialogue[dialogueIndex];
+                }
+                dialogueIndex++;
+                return currentDialogue;
+            }else{
+                if(introDone){
+                    window.location.href = "@Url.Action("minigame1", "Minigames")";
+                }else{
+                    toggleToGame();
+                    currentDialogue = '';
+                    dialogueIndex=0;
+                }
+                return {name:"", speech:""};
+            }
+        }
+        function showText(){
+            nextButton.style.display = 'none';
+            console.log(nextButton.style.display)
+            let shownDialogue = nextDialogue();
+            let speed = document.getElementById("speed").value; // time for individual letters to appear
+            document.querySelector("#speaker-name").textContent = shownDialogue.name;
+            let text = shownDialogue.speech;
+            document.querySelector(".textbox").textContent = "";
+            for(let i = 0; i < text.length; i++){
+                setTimeout(function() {
+                    document.querySelector(".textbox").textContent += text[i];
+                    if(i==text.length-1){
+                        nextButton.style.display = 'block';
+                        console.log(nextButton.style.display)
+                    }
+                }, speed * i);
+
+            };
+        };
+        document.addEventListener("DOMContentLoaded", showText);
+</script>

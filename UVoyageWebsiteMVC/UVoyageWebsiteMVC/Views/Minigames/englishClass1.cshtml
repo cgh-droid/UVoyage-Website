@@ -1,0 +1,363 @@
+﻿@{
+    ViewData["Title"] = "Playing Minigame";
+}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #1E0555;
+    }
+
+    body, .quote-input {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .container {
+        background-color: #F0DB4F;
+        padding: 1rem;
+        border-radius: .5rem;
+        width: 700px;
+        max-width: 90%;
+        position: absolute;
+        bottom: 35%;
+    }
+
+    .timer {
+        position: absolute;
+        top: 2rem;
+        font-size: 3rem;
+        color: #F0DB4F;
+        font-weight: bold;
+    }
+
+    .quote-display {
+        margin-bottom: 1rem;
+        margin-left: calc(1rem + 2px);
+        margin-right: calc(1rem + 2px);
+    }
+
+    .quote-input {
+        background-color: transparent;
+        border: 2px solid #A1922E;
+        outline: none;
+        width: 100%;
+        margin: auto;
+        resize: none;
+        padding: 10rem 1rem;
+        font-size: 1rem;
+        border-radius: .5rem;
+    }
+
+        .quote-input:focus {
+            border-color: black;
+        }
+
+    .correct {
+        color: green;
+    }
+
+    .incorrect {
+        color: red;
+        text-decoration: underline;
+    }
+
+    * {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    #bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    #myVideo {
+        z-index: -1;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .textbox {
+        font-family: sans-serif;
+        font-size: 1vw;
+        font-weight: bold;
+        color: aliceblue;
+        background-image: linear-gradient(to right, darkturquoise, deepskyblue,dodgerblue);
+        width: 50vw;
+        height: 5vw;
+        border-radius: 20px;
+        padding: 0.75vw;
+        text-align: left;
+    }
+
+    .textbox-container {
+        z-index: 2;
+        position: absolute;
+        top: 75%;
+        left: 50vh;
+    }
+
+    .convo-container {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .textbox-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+    #next-button {
+        background-color: deepskyblue;
+        border-radius: 7px;
+        border-width: 1px;
+    }
+
+    #speaker-name {
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(to right, rgb(255 162 50), rgb(255, 200, 111));
+        width: fit-content;
+        text-align: center;
+        margin: 10px auto;
+        color: aliceblue;
+    }
+</style>
+<div class="convo-container convo">
+    <div class="textbox-container convo">
+        <h3 id="speaker-name" class="convo"><b></b></h3>
+        <div class="textbox convo"></div>
+        <div class="textbox-buttons">
+            <input type="range" min="1" max="100" value="50" id="speed" class="convo">
+            <button id="next-button" onclick="showText()">Next</button>
+        </div>
+    </div>
+    <img id="bg-img" src="" />
+</div>
+<div class="timer game" id="timer"></div>
+<div class="container game">
+    <div class="quote-display" id="quoteDisplay"></div>
+    <textarea id="quoteInput" class="quote-input" autofocus></textarea>
+</div>
+<img src="~/Photos/English game sketch.png" class="game" id="myVideo"/>
+<script>
+    const quoteDisplayElement = document.getElementById('quoteDisplay')
+    const quoteInputElement = document.getElementById('quoteInput')
+    const timerElement = document.getElementById('timer')
+    const essay = [`In the story "Hey Kiddo" by Jarrett J. Krosoczka, the characters and conflicts collaboratively convey the goodness in life.`,
+    "Through the constant amending between people and development of mankind in spite of unexpected occurrences, it is clear that the graphic novel aims to give off a sense of hopefulness.",
+    "An example of this idea is ironically embodied in the disagreements with characters in the book.",
+    "Krosoczka displays how his grandparents would argue constantly about alcoholism and such all throughout his childhood but always resolve.",
+    "Every fight, every shout, every release of anger would end up in resolution rather than separation.",
+    "Ultimately, it all proves a point on how life has its upsides, even when it may not feel like it.",
+    "Additionally, Krosoczka also exhibits a sense of positive development within his life.",
+    `To finish off his book, he declares proudly that "They weren't always perfect, but they were mine."`,
+    "Regardless of the empty piece of his life that lacks a healthy mother parental figure, Krosoczka seems to strengthen himself by expressing gratitude with his present family and admiring how far he has gone solely with his willpower at graduation.",
+    "Despite every challenge he's faced, the author develops upon those obstacles, resulting in an overall message of optimism."]
+    let essayIndex = 0;
+    let finalTime = 0;
+
+    quoteInputElement.addEventListener('input', () => {
+      const arrayQuote = quoteDisplayElement.querySelectorAll('span')
+      const arrayValue = quoteInputElement.value.split('')
+
+      let correct = true
+      arrayQuote.forEach((characterSpan, index) => {
+        const character = arrayValue[index]
+        if (character == null) {
+          characterSpan.classList.remove('correct')
+          characterSpan.classList.remove('incorrect')
+          correct = false
+        } else if (character === characterSpan.innerText) {
+          characterSpan.classList.add('correct')
+          characterSpan.classList.remove('incorrect')
+        } else {
+          characterSpan.classList.remove('correct')
+          characterSpan.classList.add('incorrect')
+          correct = false
+        }
+      })
+
+      if (correct) renderNewQuote()
+    })
+
+    function getRandomQuote() {
+        let returnedQuote = "Done";
+        if (essayIndex <= essay.length-1) {
+            returnedQuote= essay[essayIndex];
+            essayIndex++;
+            return returnedQuote;
+        }else{
+            introDone = true;
+            toggleToConvo();
+            finalTimer = stopTimer();
+            if(finalTimer<300){
+                localStorage.setItem("englishGood", "true");
+            }
+            console.log(finalTimer);
+            console.log(localStorage.getItem("englishGood"));
+            return returnedQuote;
+        }
+    }
+
+    async function renderNewQuote() {
+      const quote = await getRandomQuote()
+      quoteDisplayElement.innerHTML = ''
+      quote.split('').forEach(character => {
+        const characterSpan = document.createElement('span')
+        characterSpan.innerText = character
+        quoteDisplayElement.appendChild(characterSpan)
+      })
+      quoteInputElement.value = null
+      //startTimer()
+    }
+
+    // let startTime
+    // function startTimer() {
+    //   timerElement.innerText = 0
+    //   startTime = new Date()
+    //   setInterval(() => {
+    //     timer.innerText = getTimerTime()
+    //   }, 1000)
+    // }
+
+    // function getTimerTime() {
+    //   return Math.floor((new Date() - startTime) / 1000)
+    // }
+        let startTime;
+    let timerInterval;
+
+    function startTimer() {
+        timerElement.innerText = 0;
+
+        startTime = new Date();
+
+        timerInterval = setInterval(() => {
+            timer.innerText = getTimerTime();
+        }, 1000);
+    }
+
+    function getTimerTime() {
+        return Math.floor((new Date() - startTime) / 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+
+        let finalTime = getTimerTime();
+
+        return finalTime;
+    }
+
+    renderNewQuote()
+
+    const bgImg = document.getElementById("bg-img");
+    const nextButton = document.getElementById("next-button");
+
+
+
+    let introDone=false;
+    const gameElements = document.querySelectorAll('.game');
+    const convoElements = document.querySelectorAll('.convo');
+    function toggleToGame(){
+        console.log("game")
+        gameElements.forEach(el => {
+        el.style.display ='block' ;
+        });
+        convoElements.forEach(el => {
+        el.style.display = 'none';
+        });
+    }
+    function toggleToConvo(){
+        console.log("convo")
+        gameElements.forEach(el => {
+        el.style.display = 'none';
+        });
+        convoElements.forEach(el => {
+        el.style.display ='block';
+        });
+        if (introDone){
+            dialogue = [
+            {name: "Narrator", speech:"Relief washes over you as you finish typing the final punctuation mark.",bgImg: "/Photos/English game sketch.png"},
+            {name: "Narrator", speech:"As you’re reading over the 3rd sentence your thoughtful work...",bgImg: "/Photos/English game sketch.png"},
+            {name: "Narrator", speech:"the bell rings.",bgImg: "/Photos/English game sketch.png"},
+            {name: "Narrator", speech:"It’s almost startling!",bgImg: "/Photos/English game sketch.png"},
+            {name: "Narrator", speech:"Your quick fingers subconsciously turn in the document in a flash, and soon you’re following the exiting crowd out the door.",bgImg: "/Photos/English game sketch.png"}
+            ];
+            localStorage.setItem("englishDone", "true");
+            showText();
+        }else{
+            dialogue = [
+                {name: "Teacher", speech:"Good day, class!", bgImg: "/Photos/English talk sketch.png"},
+                {name: "Teacher", speech:"I’m sure by this point we’ve already finished reading our assigned books, right?",bgImg: "/Photos/English talk sketch.png"},
+                {name: "Narrator", speech:"Everyone nods yes.",bgImg: "/Photos/English talk sketch.png"},
+                {name: "Teacher", speech:"Then I suppose it is time for me to introduce the next step.",bgImg: "/Photos/English talk sketch.png"},
+                {name: "Teacher", speech:"Everybody remembers what a theme is, yes? It’s the overall message or lesson of a story.", bgImg: "/Photos/English talk sketch.png"},
+                {name: "Teacher", speech:"Now, for this class period, we’re going to be writing a one paragraph essay, an essay on the themes regarding the literature we just read.", bgImg: "/Photos/English talk sketch.png"},
+                {name: "Teacher", speech:"Please, on your laptops, open an empty google document and answer the following prompt: “Every story has an underlying message beneath it, what is the most compelling theme of the text you have just read?”  Be sure to provide 2 pieces of evidence and analysis.", bgImg: "/Photos/English talk sketch.png"},
+                {name: "Narrator", speech:"On your desk lies your laptop. You lift the screen just as your classmates do, anxious but ready.", bgImg: "/Photos/English talk sketch.png"},
+                {name: "Narrator", speech:"Only 40 minutes to write an entire paragraph? Suppose you should get to work as soon as you can.", bgImg: "/Photos/English talk sketch.png"},
+
+            ]
+        }
+    }
+    toggleToConvo();
+    let currentDialogue = '';
+    let dialogueIndex=0;
+    function nextDialogue(){
+        if(dialogueIndex < dialogue.length){
+            bgImg.src = dialogue[dialogueIndex].bgImg;
+            if(currentDialogue ==''){
+                currentDialogue = dialogue[0];
+            }else{
+                currentDialogue=dialogue[dialogueIndex];
+            }
+            dialogueIndex++;
+            return currentDialogue;
+        }else{
+            if(introDone){
+                window.location.href = "@Url.Action("minigame1", "Minigames")";
+            }else{
+                toggleToGame();
+                startTimer();
+                currentDialogue = '';
+                dialogueIndex=0;
+            }
+            return {name:"", speech:""};
+        }
+    }
+    function showText(){
+        nextButton.style.display = 'none';
+        console.log(nextButton.style.display)
+        let shownDialogue = nextDialogue();
+        let speed = document.getElementById("speed").value; // time for individual letters to appear
+        document.querySelector("#speaker-name").textContent = shownDialogue.name;
+        let text = shownDialogue.speech;
+        document.querySelector(".textbox").textContent = "";
+        for(let i = 0; i < text.length; i++){
+            setTimeout(function() {
+                document.querySelector(".textbox").textContent += text[i];
+                if(i==text.length-1){
+                    nextButton.style.display = 'block';
+                    console.log(nextButton.style.display)
+                }
+            }, speed * i);
+
+        };
+    };
+    document.addEventListener("DOMContentLoaded", showText);
+</script>

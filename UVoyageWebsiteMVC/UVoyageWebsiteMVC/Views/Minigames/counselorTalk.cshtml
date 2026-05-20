@@ -1,0 +1,249 @@
+﻿@{
+    ViewData["Title"] = "Playing Minigame";
+}
+<style>
+    * {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    #bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    #myVideo {
+        z-index: -1;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .textbox {
+        font-family: sans-serif;
+        font-size: 1vw;
+        font-weight: bold;
+        color: aliceblue;
+        background-image: linear-gradient(to right, darkturquoise, deepskyblue,dodgerblue);
+        width: 50vw;
+        height: 5vw;
+        border-radius: 20px;
+        padding: 0.75vw;
+        text-align: left;
+    }
+
+    .textbox-container {
+        z-index: 2;
+        position: absolute;
+        top: 75%;
+        left: 50vh;
+    }
+
+    .convo-container {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .textbox-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+    #next-button {
+        background-color: deepskyblue;
+        border-radius: 7px;
+        border-width: 1px;
+    }
+
+    #speaker-name {
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(to right, rgb(255 162 50), rgb(255, 200, 111));
+        width: fit-content;
+        text-align: center;
+        margin: 10px auto;
+        color: aliceblue;
+    }
+
+    .button-container {
+        display: flex !important;
+        justify-content: space-evenly;
+        align-items: center;
+        width:100%; 
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index:-1;
+    }
+    #button-game{
+        width: 30%;
+        height:30vh;
+        background-color: deepskyblue;
+        font-size:x-large;  
+        cursor: pointer;
+    }
+</style>
+
+<div class="convo-container convo">
+    <div class="textbox-container convo">
+        <h3 id="speaker-name" class="convo"><b></b></h3>
+        <div class="textbox convo"></div>
+        <div class="textbox-buttons">
+            <input type="range" min="1" max="100" value="50" id="speed" class="convo">
+            <button id="next-button" onclick="showText()">Next</button>
+        </div>
+    </div>
+    <img id="bg-img" src="" />
+</div>
+<div class="game button-container">
+    <button id="button-game" onclick="decideChoice(1)">Yeah, I do want to give one of those a try!</button>
+    <button id="button-game" onclick="decideChoice(2)">I don't like any of those careers actually.</button>
+    <button id="button-game" onclick="decideChoice(3)">I'm not quite sure what I want to be yet.</button>
+</div>
+<script>
+    const bgImg = document.getElementById("bg-img");
+    const nextButton = document.getElementById("next-button");
+    let choice = 1;
+    function decideChoice(num){
+        choice = num;
+        introDone = true;
+        toggleToConvo();
+    }
+    let introDone=false;
+    const gameElements = document.querySelectorAll('.game');
+    const convoElements = document.querySelectorAll('.convo');
+    function toggleToGame(){
+        console.log("game")
+        gameElements.forEach(el => {
+        el.style.display ='block' ;
+        });
+        convoElements.forEach(el => {
+        el.style.display = 'none';
+        });
+    }
+    function toggleToConvo(){
+        console.log("convo")
+        gameElements.forEach(el => {
+        el.style.display = 'none';
+        });
+        convoElements.forEach(el => {
+        el.style.display ='block';
+        });
+        if (introDone){
+            dialogueIndex = 0;
+            currentDialogue = '';
+            if(choice==1){
+                dialogue = [
+                {name: "Counselor", speech:"I must say, I'm sure you can do it!",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"As much as I'm glad that you told me you liked my career recommendation...",bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"I know it's a stressful question for me to ask, and maybe a tiny bit of you is still unsure.",bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"So let me also say that if your goals or interests ever change, it's an okay change.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"Choosing a different path doesn’t mean you failed, think about it as growing and learning more about yourself.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"Every experience teaches you something, even the tough ones.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"The fact that you’re willing to keep trying and give effort into your core classes shows a powerful aspect of yourself, and that's not even considering your electives!",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"That in and of itself is an important trait to have.",bgImg: "/Photos/Counselor talk both happy sketch.png"},
+                {name: "Counselor", speech:"Keep it up. I believe in you!",bgImg: "/Photos/Counselor talk both happy sketch.png"},
+                {name: "Narrator", speech:"The End: Be Inspired to Learn",bgImg: "/Photos/black.png"}
+
+                ];
+            }else if(choice==2){
+                dialogue = [
+                {name: "Counselor", speech:"You know, that's perfectly fine!",bgImg: "/Photos/Counselor talk supportive sketch.png"},
+                {name: "Counselor", speech:"You didn't need to find your future in anything I just said!",bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"I'm glad you already know what you wish to be, before I even asked you.",bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"You display skill in school, and I can't imagine the impact you could make outside of it.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"Whatever you desire to be, try finding electives in-school or building on that goal through extracurriculars.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"I'm sure whatever it is, you'll have somebody's support.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"I believe in you!",bgImg: "/Photos/Counselor talk both happy sketch.png"},
+                {name: "Narrator", speech:"The End: Be Inspired to Learn",bgImg: "/Photos/black.png"}
+                ];
+            }else{
+                dialogue = [
+                    {name: "Counselor", speech:"That's alright! You're still young and learning, you know?",bgImg: "/Photos/Counselor talk unsure sketch.png"},
+                    {name: "Counselor", speech:"One day, there'll be a time where you've figured it all out.",bgImg: "/Photos/Counselor talk unsure sketch.png"},
+                    {name: "Counselor", speech:"There's no need to rush for that day right now.",bgImg: "/Photos/Counselor talk supportive sketch.png"},
+                    {name: "Counselor", speech:"As long as you keep trying new things and putting in the hard work, you'll find something eventually.",bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                    {name: "Counselor", speech:"I believe in you!",bgImg: "/Photos/Counselor talk both happy sketch.png"},
+                    {name: "Narrator", speech:"The End: Be Inspired to Learn",bgImg: "/Photos/black.png"}
+                ];
+            }
+            localStorage.setItem("mathDone", "false");
+            localStorage.setItem("socialStudiesDone", "false");
+            localStorage.setItem("englishDone", "false");
+            localStorage.setItem("scienceDone", "false");
+            localStorage.setItem("mathGood", "false");
+            localStorage.setItem("englishGood", "false");
+            localStorage.setItem("socialStudiesGood", "false");
+            showText();
+        }else{
+            dialogue = [
+                {name: "Counselor", speech:"Blue, I'm sure you know, graduation comes at some point.", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"I just wanted to let you know that I’ve been noticing the efforts you've been putting into your classes.", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"It's also almost time for you to grow up and do bigger things, whether that be in school or not.", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"Do you have any ideas on what you would like to aim for in a career?", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"To start, I feel that you could do well in science.", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"Have you ever thought about being a doctor, forensic scientist (someone who helps with criminal investigations and utilizes lab skills and attentiveness), chemist (someone who studied reactions and such in order to improve medicine, shampoo, batteries, etc.)?", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                (localStorage.getItem("englishGood")=="true") ? {name: "Counselor", speech:"Additionally, your ability to write in english is outstanding!", bgImg: "/Photos/Counselor talk relaxed sketch.png"} : {name: "Blue", speech:"Do you really think I can be a doctor? A chemist? A forensic scientist?", bgImg: "/Photos/Counselor talk unsure sketch.png"},
+                (localStorage.getItem("englishGood")=="true") ? {name: "Counselor", speech:"You should consider being a writer, english teacher, or editor (someone who proofreads work before it is published)!", bgImg: "/Photos/Counselor talk relaxed sketch.png"} : {name: "Counselor", speech:"Working as any of those occupations takes a personality of someone who is curious, persistent, and patient, which are traits you displayed in your science class!", bgImg: "/Photos/Counselor talk unsure sketch.png"},
+                (localStorage.getItem("mathGood")=="true") ? {name: "Counselor", speech:"Not only that but I could also see you as a financial analyst (someone who helps out with the money of a company), data analyst (someone who is good at business trends and data), or a management consultant (a problem solver that can work with analytics and communication).", bgImg: "/Photos/Counselor talk relaxed sketch.png"}: {name: "Counselor", speech:"If any one of those sounded like something you would be interested in, I recommend you try to reach it! You certainly have the skills to.", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                (localStorage.getItem("socialStudiesGood")=="true") ? {name: "Counselor", speech:"Plus, if history or social studies really floats your boat, there's also a thought of you becoming a history teacher, policy analyst (someone who researches laws and policies for the government or other groups), or museum curator (people that research history and teach others about found information as well).", bgImg: "/Photos/Counselor talk relaxed sketch.png"}: {name: "Counselor", speech:"Trying to figure out what you think you want to be is scary in a way, but that fear depends on your mindset.", bgImg: "/Photos/Counselor talk calm sketch.png"},
+                {name: "Counselor", speech:"All those jobs I mentioned about were just to name a few!", bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"There are a whole bunch of other jobs that relate to science and you alone.", bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"If I had to tell you every single job I think you'd excel in, we'd be here forever!", bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"I know that was a lot of meaningful information I just spout out at you, Blue.", bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+                {name: "Counselor", speech:"More importantly, however, what do you think about the jobs I just listed to you?", bgImg: "/Photos/Counselor talk relaxed sketch.png"},
+            ]
+        }
+
+    }
+    toggleToConvo();
+    let currentDialogue = '';
+    let dialogueIndex=0;
+    function nextDialogue(){
+        if(dialogueIndex < dialogue.length){
+            bgImg.src = dialogue[dialogueIndex].bgImg;
+            if(currentDialogue ==''){
+                currentDialogue = dialogue[0];
+            }else{
+                currentDialogue=dialogue[dialogueIndex];
+            }
+            dialogueIndex++;
+            return currentDialogue;
+        }else{
+            if(introDone){
+                window.location.href = "@Url.Action("minigameMain", "Minigames")";
+            }else{
+                toggleToGame();
+                currentDialogue = '';
+                dialogueIndex=0;
+            }
+            return {name:"", speech:""};
+        }
+    }
+    function showText(){
+        nextButton.style.display = 'none';
+        console.log(nextButton.style.display)
+        let shownDialogue = nextDialogue();
+        let speed = document.getElementById("speed").value; // time for individual letters to appear
+        document.querySelector("#speaker-name").textContent = shownDialogue.name;
+        let text = shownDialogue.speech;
+        document.querySelector(".textbox").textContent = "";
+        for(let i = 0; i < text.length; i++){
+            setTimeout(function() {
+                document.querySelector(".textbox").textContent += text[i];
+                if(i==text.length-1){
+                    nextButton.style.display = 'block';
+                    console.log(nextButton.style.display)
+                }
+            }, speed * i);
+
+        };
+    };
+    document.addEventListener("DOMContentLoaded", showText);
+</script>

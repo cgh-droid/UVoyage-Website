@@ -1,17 +1,112 @@
 ﻿@{
     ViewData["Title"] = "Playing Minigame";
 }
-<div class="heading-image">
-    <img src="~/Photos/051e8afd49caeaf59ca4b4b1574f71dc.jpg">
-    <div class="description">
-        BE INSPIRED TO LEARN
+<div class="parent">
+    <div class="doors-container">
+        <img class="doors" src="~/Photos/HallwayBirdseye1.png">
+        <img class="counselor" src="~/Photos/CounselorBlinking1.gif" />
+        <img class="man" src="~/Photos/BlueWalkingPlaceholder1.png" style="left: 0; bottom: 0">
+    </div>
+    <div class="text-container">
+        <p id="message" style="display:none;">Your counselor can't evaluate you nor can you leave school just yet. Try finishing all your classes for the day first.</p>
     </div>
 </div>
-<div class="subpage">
-    <div class="description">
-        <h1>COMING SOON</h1>
-    </div>
-</div>
+<style>
+     img {
+        position: absolute;
+     }
+    .doors-container {
+        height: 100vh;
+        width: 100vw; 
+        overflow: hidden;
+    }
+    .doors, .counselor{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+    .man {
+      width:7vw;
+      height: auto;
+      z-index: 3;
+      position: relative;
+      transition: 0.1s;
+    }
+    #message{
+        background-color:white;
+        position:absolute;
+        top:10%;
+        padding: 10px;
+        z-index: 2;
+    }
+
+    .text-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .parent {
+        position: relative;
+    }
+</style>
+<script>
+    const man = document.querySelector(".man");
+      let speed = 1;
+
+      const toNum = (pxVal) => {
+        return parseInt(pxVal, 10);
+      };
+      const handleMovement = (e) => {
+          let left = toNum(man.style.left);
+          const bottom = toNum(man.style.bottom);
+          console.log("left:"+left+" bottom:"+bottom);
+          console.log("left:"+man.style.left+" bottom:"+man.style.bottom);
+          console.log(localStorage.getItem("scienceDone"))
+          if (left == "75" && bottom=="-25"){
+              if((localStorage.getItem("mathDone")=="true")&&(localStorage.getItem("socialStudiesDone")=="true")&&(localStorage.getItem("scienceDone")=="true")&&(localStorage.getItem("englishDone")=="true")){
+                  window.location.href = "@Url.Action("counselorTalk", "Minigames")";
+              }else{
+                showMessage();
+                console.log("hi")
+              }
+          }
+          if (left == "20" && bottom=="0") if(localStorage.getItem("mathDone")=="false") window.location.href = "@Url.Action("mathClass1", "Minigames")";
+          if (left == "20" && bottom=="-50") if(localStorage.getItem("socialStudiesDone")=="false") window.location.href = "@Url.Action("socialStudiesClass1", "Minigames")";
+          if (left == "60" && bottom=="0") if(localStorage.getItem("scienceDone")=="false") window.location.href = "@Url.Action("scienceClass1", "Minigames")";
+          if (left == "60" && bottom=="-50") if(localStorage.getItem("englishDone")=="false") window.location.href = "@Url.Action("englishClass1", "Minigames")";
+
+          
+          switch (e.key) {
+              case 'a':
+                  if (left <= 0) return (man.style.left = 0);
+                  man.style.left = left - speed + 'vw';
+                  break;
+              case 'd':
+                  if (left >= 75) return (man.style.left = 75);
+                  man.style.left = left + speed + 'vw';
+                  break;
+              case 'w':
+                  if (bottom >= 0) return (man.style.bottom = 0);
+                  man.style.bottom = bottom + speed + 'vh';
+                  break;
+              case 's':
+                  if (bottom <= -50) return (man.style.bottom = -50);
+                  man.style.bottom = bottom - speed + 'vh';
+                  break;
+          }
+      };
+      window.addEventListener('keydown', handleMovement);
+      const message = document.getElementById("message");
+      function showMessage(){
+        message.style.display = "block"; 
+
+        setTimeout(() => {
+            message.style.display = "none";
+        }, 10000);
+    }
+</script>
 @section Styles {
 
     <link rel="stylesheet" href="~/css/minigames.css" />

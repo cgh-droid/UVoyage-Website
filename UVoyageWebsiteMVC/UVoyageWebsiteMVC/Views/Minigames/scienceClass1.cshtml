@@ -1,0 +1,474 @@
+﻿@{
+    ViewData["Title"] = "Playing Minigame";
+}
+<style>
+    * {
+        font-family: sans-serif;
+    }
+
+    #beaker {
+        width: 25%;
+        height: 60vh;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: relative;
+        margin: 20px auto;
+        padding: 10px;
+        font-size: xx-large;
+        background-color: #f0f0f0;
+        text-align: center;
+    }
+
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    #elements {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #hydrogen, #carbon, #oxygen, #nitrogen, #enter, #restart{
+        margin: 20px 10px 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    #disclaimer{
+        position:absolute;
+        bottom:0;
+        left:1%;
+    }
+    .beaker-and-elements{
+        margin-top: 2vh;
+    }
+    #goal{
+        margin-top: 15px;
+        text-align: center;
+        padding:10px;
+        background-color:white;
+    }
+
+    * {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    #bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    #myVideo {
+        z-index: -1;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .textbox {
+        font-family: sans-serif;
+        font-size: 1vw;
+        font-weight: bold;
+        color: aliceblue;
+        background-image: linear-gradient(to right, darkturquoise, deepskyblue,dodgerblue);
+        width: 50vw;
+        height: 5vw;
+        border-radius: 20px;
+        padding: 0.75vw;
+        text-align: left;
+    }
+
+    .textbox-container {
+        z-index: 2;
+        position: absolute;
+        top: 75%;
+        left: 50vh;
+    }
+
+    .convo-container {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .textbox-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+    #next-button{
+        background-color: deepskyblue;
+        border-radius: 7px;
+        border-width: 1px;
+    }
+
+    #speaker-name {
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(to right, rgb(255 162 50), rgb(255, 200, 111));
+        width: fit-content;
+        text-align: center;
+        margin: 10px auto;
+        color: aliceblue;
+    }
+</style>
+<div class="convo-container convo">
+    <div class="textbox-container convo">
+        <h3 id="speaker-name" class="convo"><b></b></h3>
+        <div class="textbox convo"></div>
+        <div class="textbox-buttons">
+            <input type="range" min="1" max="100" value="50" id="speed" class="convo">
+            <button id="next-button" onclick="showText()">Next</button>
+        </div>
+    </div>
+    <img id="bg-img" src="" />
+</div>
+<h1 id="goal" class="game">Create 15 unique compounds!</h1>
+<p id="disclaimer" class="game">*Not accurate to reality: you cannot mix gas hydrogen, carbon, oxygen, and nitrogen gasses in school sadly</p>
+<div class="beaker-and-elements game">
+    <div id="beaker"> </div>
+    <div id="elements">
+        <button id="hydrogen" onclick="addElement('H')">H</button>
+        <button id="carbon" onclick="addElement('C')">C</button>
+        <button id="oxygen" onclick="addElement('O')">O</button>
+        <button id="nitrogen" onclick="addElement('N')">N</button>
+
+        <button id="enter" onclick="createCompound()">Enter</button>
+        <button id="restart" onclick="clear()">Restart</button>
+    </div>
+</div>
+<img id="myVideo" src="~/Photos/Chem game sketch.png" alt="Blue and his friend near a beaker" />
+<script>
+        arrayCount = (arr, val) => {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === val) {
+                count++;
+            }
+        }
+        return count;
+     }
+
+
+    var beaker = document.getElementById("beaker");
+    var hydrogenButton = document.getElementById("hydrogen");
+    var oxygenButton = document.getElementById("oxygen");
+    var nitrogenButton = document.getElementById("nitrogen");
+    var enterButton = document.getElementById("enter");
+    var restartButton = document.getElementById("restart");
+    var elements = [];
+    var compounds = {
+        "C2H2 (Acetylene)": ["C", "C", "H", "H"],
+        "C2H4 (Ethylene)": ["C", "C", "H", "H", "H", "H"],
+        "C2H6 (Ethane)": ["C", "C", "H", "H", "H", "H", "H", "H"],
+        "C2O2 (Ethylene Dione)": ["C", "C", "O", "O"],
+        "C2O3 (Oxalic Anhydride)": ["C", "C", "O", "O", "O"],
+        "C2O4 (Oxalate)": ["C", "C", "O", "O", "O", "O"],
+        "C2O5 (Pyrocarbonate)": ["C", "C", "O", "O", "O", "O", "O"],
+        "C2O6 (Peroxodicarbonate)": ["C", "C", "O", "O", "O", "O", "O", "O"],
+        "C3H6 (Cyclopropane)": ["C", "C", "C", "H", "H", "H", "H", "H", "H"],
+        "C3H8 (Propane)": ["C", "C", "C", "H", "H", "H", "H", "H" ,"H" ,"H" ,"H"],
+        "C3O2 (Carbon dioxide)": ["C", "C", "C", "O", "O"],
+        "C4H10 (Butane)": ["C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H","H"],
+        "C4H8 (Cyclobutane)": ["C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C5H10 (Cyclopentane)": ["C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C5H12 (Pentane)": ["C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C6H6 (Benzene)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C6H8 (Cyclohexene)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C6H10 (Cyclohexadiene)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H","H"],
+        "C6H12 (Cyclohexane)": ["C","C","C","C","C","C","H","H","H","H","H","H"],
+        "C6H12O6 (Glucose)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"O","O","O","O","O","O"],
+        "C6H14 (Hexane)": ["C","C","C","C","C","C","H","H","H","H","H","H","H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C7H16 (Heptane)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C7H8 (Toluene)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C8H18 (Octane)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "C6H (Octane)": ["C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H"],
+        "CH2O (Formaldehyde)": ["C", "H", "H", "O"],
+        "CH2O2 (Acetaldehyde)": ["C", "H", "H", "O", "O"],
+        "CH2O3 (Formic acid)": ["C", "H", "H", "O", "O", "O"],
+        "CH3COOH (Acetic acid)": ["C" ,"H" ,"H" ,"H" ,"C" ,"O" ,"O","H"],
+        "CH3COO (Acetate)": ["C" ,"H" ,"H" ,"H" ,"C" ,"O" ,"O"],
+        "CH3CHO (Acetaldehyde)": ["C" ,"H" ,"H" ,"H" ,"C" ,"H" ,"O"],
+        "CH3CH2COOH (Propionic acid)": ["C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"O" ,"O","H"],
+        "CH3CH2COO (Propionate)": ["C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"O" ,"O"],
+        "CH3CH2CHO (Propionaldehyde)": ["C" ,"C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"O"],
+        "CH3CH2OH (Ethanol)": ["C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"O" ,"H"],
+        "CH3CH2O (Ethoxide)": ["C" ,"C" ,"H" ,"H" ,"H" ,"H" ,"H" ,"H" ,"O"],
+        "CH3NH2 (Methylamine)": ["H", "H", "H", "H", "H", "C", "N"],
+        "CH3OH (Methanol)": ["C" ,"H" ,"H" ,"H" ,"O" ,"H"],
+        "CH3O (Methoxide)": ["C" ,"H" ,"H" ,"H" ,"O"],
+        "CH4 (Methane)": ["C", "H", "H", "H", "H"],
+        "CH4O2 (Methanol)": ["C", "H", "H", "H", "H", "O", "O"],
+        "CN (Cyanide)": ["C","N"],
+        "CO (Carbon monoxide)": ["C","O"],
+        "CO2 (Carbon dioxide)": ["C" ,"O" ,"O"],
+        "CO3 (Carbonate)": ["C", "O", "O", "O"],
+        "CO4 (Carbon Tetraoxide)": ["C", "O", "O", "O", "O"],
+        "CO5 (Carbon Pentoxide)": ["C", "O", "O", "O", "O", "O"],
+        "CO6 (Carbon Hexoxide)": ["C", "O", "O", "O", "O", "O", "O"],
+        "HCN (Hydrogen cyanide)": ["H", "C", "N"],
+        "HCNO (Isocyanic acid)": ["H", "C", "N", "O"],
+        "H2 (Hydrogen)": ["H", "H"],
+        "H2C2O4 (Oxalic acid)": ["H", "H", "C", "C", "O", "O", "O", "O"],
+        "H2CO3 (Carbonic acid)": ["H", "H", "C", "O", "O", "O"],
+        "H2O (Water)": ["H", "H", "O"],
+        "H2O2 (Hydrogen peroxide)": ["H", "H", "O", "O"],
+        "H3O (Hydronium ion)": ["H", "H", "H", "O"],
+        "HNO2 (Nitrous acid)": ["H", "N", "O", "O"],
+        "HNO3 (Nitric acid)": ["H", "N", "O", "O", "O"],
+        "NH2OH (Hydroxylamine)": ["H", "H", "H", "N", "O"],
+        "NH3 (Ammonia)": [ "H", "H", "H", "N"],
+        "NH4 (Ammonium)": [ "H", "H", "H", "H", "N"],
+        "NH4NO3 (Ammonium nitrate)": ["H", "H", "H", "H", "N", "N", "O", 	"O","O"],
+        "N2 (Dinitrogen)": ["N", "N"],
+        "N2H4 (Hydrazine)": [ "H", "H", "H", "H", "N", "N"],
+        "N2O (Dinitrogen monoxide)": ["N", "N", "O"],
+        "N2O3 (Dinitrogen trioxide)": ["N", "N", "O", "O", "O"],
+        "N2O4 (Dinitrogen tetroxide)": ["N", "N", "O", "O", "O", "O"],
+        "N2O5 (Dinitrogen pentoxide)": ["N", "N", "O", "O", "O", "O", "O"],
+        "NO (Nitrogen monoxide)": ["N", "O"],
+        "NO2 (Nitrogen dioxide)": ["N", "O", "O"],
+        "NO3 (Nitrate)": ["N", "O", "O", "O"],
+        "O2 (Oxygen)": ["O", "O"],
+        "OCN (Cyanate)": ["O", "C", "N"],
+        "OH (Hydroxide)": ["H","O"]
+    };
+    let uniqueElements = [];
+    addElement = (element) => {
+        elements.push(element);
+        var newTextContent = "";
+        for (let i = 0; i < elements.length; i++) {
+            newTextContent += elements[i];
+            if(i != elements.length - 1) {
+                newTextContent += " + ";
+            }
+        }
+        beaker.textContent = newTextContent;
+    }
+    addEventListener("keydown", (event) => {
+        if(event.key === "Enter") {
+            createCompound();
+        }
+        if(event.key === "r") {
+            clear();
+        }
+    });
+    addEventListener("click", (event) => {
+        if(event.target === enterButton) {
+            createCompound();
+        }
+            if(event.target === restartButton) {
+            clear();
+        }
+    });
+    clear = () => {
+        elements = [];
+        beaker.textContent = "";
+    }
+    createCompound = () => {
+        for (const compound in compounds) {
+            if (arrayCount(elements, "H") === arrayCount(compounds[compound], "H") && arrayCount(elements, "O") === arrayCount(compounds[compound], "O") && arrayCount(elements, "N") === arrayCount(compounds[compound], "N") && arrayCount(elements, "C") === arrayCount(compounds[compound], "C")) {
+                beaker.textContent = compound;
+                if (!uniqueElements.includes(compound)) {
+                    uniqueElements.push(compound);
+                }
+                if(uniqueElements.length == 15){
+                    introDone=true;
+                    toggleToConvo();
+                }
+                return;
+            }
+        }
+        beaker.textContent = "No compound found";}
+
+    const bgImg = document.getElementById("bg-img");
+    const nextButton = document.getElementById("next-button");
+
+
+
+    let introDone=false;
+    const gameElements = document.querySelectorAll('.game');
+    const convoElements = document.querySelectorAll('.convo');
+    function toggleToGame(){
+        console.log("game")
+        gameElements.forEach(el => {
+        el.style.display ='block' ;
+        });
+        convoElements.forEach(el => {
+        el.style.display = 'none';
+        });
+    }
+    function toggleToConvo(){
+        console.log("convo")
+        gameElements.forEach(el => {
+        el.style.display = 'none';
+        });
+        convoElements.forEach(el => {
+        el.style.display ='block';
+        });
+        if (introDone){
+            dialogueIndex = 0;
+            currentDialogue = '';
+            dialogue = [
+            {name: "Classmate", speech:"I think that’s 15!",bgImg: "/Photos/Chem talk calm sketch.png"},
+            {name: "Classmate", speech:"Okay Blue, give me your paper. I'm submitting this right now.",bgImg: "/Photos/Chem talk calm sketch.png"},
+            {name: "Blue", speech:"Don’t we have to do the analysis questions on the back?",bgImg: "/Photos/Chem talk calm sketch.png"},
+            {name: "Narrator", speech:"He flips the page.",bgImg: "/Photos/Chem talk calm sketch.png"},
+            {name: "Classmate", speech:"Aw, well, I guess that was a bit too easy. The trial and error made this whole experiment feel super long.",bgImg: "/Photos/Chem talk doubt sketch.png"},
+            {name: "Blue", speech:"Yeah, we still have around 5 minutes left of class now though.",bgImg: "/Photos/Chem talk calm sketch.png"},
+            {name: "Classmate", speech:"Five? We should hurry. There are 3 analysis questions.",bgImg: "/Photos/Chem talk doubt sketch.png"},
+            {name: "Classmate", speech:"Uh, first question: Why isn’t NO7 a possible combination when you were mixing elements?",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Classmate", speech:"...",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Classmate", speech:"Maybe because the atoms don’t fit together correctly?",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Narrator", speech:"You nod your head in agreement.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Blue", speech:"I think so. The atoms probably can’t connect together safely.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Narrator", speech:"The two of you quickly scratch your pencils onto the page, taking account of the discussion you just had.",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Blue", speech:"Okay, next it says: What do you notice about the combinations you made? Give a specific example.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Classmate", speech:"Hmmm.",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Blue", speech:"Maybe we were supposed to notice that the atoms had to connect in the right way.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Classmate", speech:"Like?",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Blue", speech:"Like how water works because the hydrogen and oxygen atoms connect properly when you think about the atomic structure.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Narrator", speech:"He jots that down, and so do you eventually.",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Classmate", speech:"Finally, the last question: How would you improve if you had to do this assignment again?",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Classmate", speech:"Well, I would probably brainstorm possible bonds on paper.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Blue", speech:"I agree. Some doodles of the different types of bonds could save a lot of time.",bgImg: "/Photos/Chem talk communicate sketch.png"},
+            {name: "Narrator", speech:"The two of you swoop up your writing utensils and fill in the final unanswered blank.",bgImg: "/Photos/Chem talk write sketch.png"},
+            {name: "Narrator", speech:"As soon as you finish writing your response to the final question, the bell rings its usual ring.",bgImg: "/Photos/bell sketch.png"},
+            {name: "Narrator", speech:"The teacher stands by the door and says her final announcement for the day.",bgImg: "/Photos/Chem talk exit sketch.png"},
+            {name: "Teacher", speech:"Give me your answers as you walk out the door and have a good day, you guys!",bgImg: "/Photos/Chem talk exit sketch.png"},
+            {name: "Narrator", speech:"The room floods with the rustling of papers and bashing footsteps from their respective tables.",bgImg: "/Photos/Chem talk exit sketch.png"},
+            {name: "Narrator", speech:"Guess it’s that time again, time to hustle out the door.",bgImg: "/Photos/Chem talk exit sketch.png"},
+            ];
+            localStorage.setItem("scienceDone", "true");
+            showText();
+        }else{
+            dialogue = [
+                {name: "Narrator", speech:"When you take a seat, you can't help but notice the paper on your desk.", bgImg: "/Photos/Chem talk enter sketch.png"},
+                {name: "Narrator", speech:`To get a grasp on what you might be doing in class, you glance at the title that reads: “Chemical Molecules and Compounds Lab.”`, bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"There was a lesson on molecules and compounds yesterday!", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"Molecules are a bunch of atoms stuck together.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"Sometimes the atoms are the same, and sometimes they are different.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"Examples of this could be both H2 and H2O.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"A compound is a specific kind of molecule that is actually made from different elements.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"Water was an example of a compound since it contained two different elements: hydrogen and oxygen, and it had a 2 hydrogens to 1 oxygen ratio.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"But H2 can't be considered a compound because it only has one type of atom, hydrogen.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"The paper has 15 thin lines on it, numbered 1-15. We’re probably going to write molecules in the blank, right?", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Teacher", speech:"May everyone take a look at the board for a moment.", bgImg: "/Photos/Chem talk read sketch.png"},
+                {name: "Narrator", speech:"You lift your head to read what the board has to say.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"As you can tell, we're going to be doing a lab today.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"I’ve prepared 4 elements on the tables: carbon, hydrogen, oxygen, and nitrogen.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"Your goal is to combine them into a bigger beaker and find molecules that form stable chemical bonds.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"Once you do, take note of it and clean out your beaker to find even more combinations to meet the assignment requirement of 15 molecules.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"Please write your findings in the format I wrote on the board for full credit.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"And I suppose that's all I have to tell you. Any questions?", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Classmate 1", speech:"Do we get to choose our partners?", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Teacher", speech:"Yes! I don't see why not for this lab.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Narrator", speech:"After saying that, students automatically started getting up from their seats, grabbing their protective goggles, and chattered.", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Narrator", speech:"Perhaps you should do the same!", bgImg: "/Photos/Chem talk introduce lab sketch.png"},
+                {name: "Narrator", speech:"...", bgImg: "/Photos/black.png"},
+                {name: "Narrator", speech:"Standing at an empty lab table, stretching on your goggles, you just stare at the beaker and elements in front of you.", bgImg: "/Photos/Chem game sketch.png"},
+                {name: "Narrator", speech:"The possibilities that could be in that beaker…", bgImg: "/Photos/Chem game sketch.png"},
+                {name: "Classmate", speech:"Hey Blue!", bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Blue", speech:"Oh, hi!", bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Classmate", speech:"I’m looking for a partner. Is it alright if we work together?",bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Blue", speech:"Yeah!",bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Narrator", speech:"The goggles on his eyes pop out to you.",bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Blue", speech:"By the way, you look cool with goggles.",bgImg: "/Photos/Chem talk happy sketch.png"},
+                {name: "Classmate", speech:"I know! Don’t I look like a mountain skier that just performs epic backflips in the snow?",bgImg: "/Photos/Chem talk happy sketch.png"},
+                {name: "Blue", speech:"Hahaha! Sure?",bgImg: "/Photos/Chem talk happy sketch.png"},
+                {name: "Classmate", speech:"Are you doubting me?",bgImg: "/Photos/Chem talk doubt sketch.png"},
+                {name: "Blue", speech:"Maybe, but if you told me you were a chemist I would believe you.",bgImg: "/Photos/Chem talk doubt sketch.png"},
+                {name: "Blue", speech:"Have any ideas on what molecules we could make?",bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Classmate", speech:"Uh, of course.",bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Classmate", speech:"We could make...",bgImg: "/Photos/Chem talk doubt sketch.png"},
+                {name: "Narrator", speech:"Through the lenses, you can see the uncertain boy's eyes drift a certain direction.",bgImg: "/Photos/Chem talk doubt sketch.png"},
+                {name: "Classmate", speech:"H2O.",bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Classmate", speech:"Let's make H2O!",bgImg: "/Photos/Chem talk happy sketch.png"},
+                {name: "Narrator", speech:"You glance at the board...", bgImg: "/Photos/Chem talk board sketch.png"},
+                {name: "Narrator", speech:"and then glance back at him.", bgImg: "/Photos/Chem talk calm sketch.png"},
+                {name: "Blue", speech:"Yeah, let's.",bgImg: "/Photos/Chem talk calm sketch.png"}
+            ]
+        }
+
+    }
+    toggleToConvo();
+    let currentDialogue = '';
+    let dialogueIndex=0;
+    function nextDialogue(){
+        if(dialogueIndex < dialogue.length){
+            bgImg.src = dialogue[dialogueIndex].bgImg;
+            if(currentDialogue ==''){
+                currentDialogue = dialogue[0];
+            }else{
+                currentDialogue=dialogue[dialogueIndex];
+            }
+            dialogueIndex++;
+            return currentDialogue;
+        }else{
+            if(introDone){
+                window.location.href = "@Url.Action("minigame1", "Minigames")";
+            }else{
+                toggleToGame();
+                currentDialogue = '';
+                dialogueIndex=0;
+            }
+            return {name:"", speech:""};
+        }
+    }
+    // function showText(){
+    //     nextButton.style.display = 'none';
+    //     console.log(nextButton.style.display + "bye")
+    //     let shownDialogue = nextDialogue();
+    //     let speed = document.getElementById("speed").value; // time for individual letters to appear
+    //     document.querySelector("#speaker-name").textContent = shownDialogue.name;
+    //     let text = shownDialogue.speech;
+    //     document.querySelector(".textbox").textContent = "";
+    //     for(let i = 0; i < text.length; i++){
+    //         setTimeout(function() {
+    //             document.querySelector(".textbox").textContent += text[i];
+    //             if(i==text.length-1){
+    //                 nextButton.style.display = 'block';
+    //                 console.log(nextButton.style.display + "hello")
+    //             }
+    //         }, speed * i);
+
+    //     };
+    // };
+        let textTimeouts = [];
+
+    function showText() {
+        textTimeouts.forEach(timeout => clearTimeout(timeout));
+        textTimeouts = [];
+
+        nextButton.style.display = 'none';
+
+        let shownDialogue = nextDialogue();
+        let speed = document.getElementById("speed").value;
+
+        document.querySelector("#speaker-name").textContent = shownDialogue.name;
+
+        let text = shownDialogue.speech;
+        document.querySelector(".textbox").textContent = "";
+
+        for (let i = 0; i < text.length; i++) {
+            let timeout = setTimeout(function () {
+                document.querySelector(".textbox").textContent += text[i];
+
+                if (i == text.length - 1) {
+                    nextButton.style.display = 'block';
+                }
+            }, speed * i);
+
+            textTimeouts.push(timeout);
+        }
+    }
+    document.addEventListener("DOMContentLoaded", showText);
+</script>

@@ -1,0 +1,146 @@
+﻿
+    <style>
+        * {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        #bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        #myVideo {
+            z-index: -1;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .textbox {
+            font-family: sans-serif;
+            font-size: 1vw;
+            font-weight: bold;
+            color: aliceblue;
+            background-image: linear-gradient(to right, darkturquoise, deepskyblue,dodgerblue);
+            width: 50vw;
+            height: 5vw;
+            border-radius: 20px;
+            padding: 0.75vw;
+            text-align: left;
+        }
+
+        .textbox-container {
+            z-index: 2;
+            position: absolute;
+            top: 75%;
+            left: 50vh;
+        }
+
+        .convo-container {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .textbox-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        #next-button {
+            background-color: deepskyblue;
+            border-radius: 7px;
+            border-width: 1px;
+        }
+
+        #speaker-name {
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(to right, rgb(255 162 50), rgb(255, 200, 111));
+            width: fit-content;
+            text-align: center;
+            margin: 10px auto;
+            color: aliceblue;
+        }
+    </style>
+
+<div class="convo-container convo">
+    <div class="textbox-container convo">
+        <h3 id="speaker-name" class="convo"><b></b></h3>
+        <div class="textbox convo"></div>
+        <div class="textbox-buttons">
+            <input type="range" min="1" max="100" value="50" id="speed" class="convo">
+            <button id="next-button" onclick="showText()">Next</button>
+        </div>
+    </div>
+    <img id="bg-img" src="" />
+</div>
+    <script>
+        const bgImg = document.getElementById("bg-img");
+        const nextButton = document.getElementById("next-button");
+
+
+
+        let introDone=false;
+        const gameElements = document.querySelectorAll('.game');
+        const convoElements = document.querySelectorAll('.convo');
+        function toggleToGame(){
+            console.log("game")
+            gameElements.forEach(el => {
+            el.style.display ='block' ;
+            });
+            convoElements.forEach(el => {
+            el.style.display = 'none';
+            });
+        }
+        toggleToConvo();
+        let currentDialogue = '';
+        let dialogueIndex=0;
+        function nextDialogue(){
+            if(dialogueIndex < dialogue.length){
+                bgImg.src = dialogue[dialogueIndex].bgImg;
+                if(currentDialogue ==''){
+                    currentDialogue = dialogue[0];
+                }else{
+                    currentDialogue=dialogue[dialogueIndex];
+                }
+                dialogueIndex++;
+                return currentDialogue;
+            }else{
+                if(introDone){
+                    window.location.href = "@Url.Action("minigame1", "Minigames")";
+                }else{
+                    toggleToGame();
+                    currentDialogue = '';
+                    dialogueIndex=0;
+                }
+                return {name:"", speech:""};
+            }
+        }
+        function showText(){
+            nextButton.style.display = 'none';
+            console.log(nextButton.style.display)
+            let shownDialogue = nextDialogue();
+            let speed = document.getElementById("speed").value; // time for individual letters to appear
+            document.querySelector("#speaker-name").textContent = shownDialogue.name;
+            let text = shownDialogue.speech;
+            document.querySelector(".textbox").textContent = "";
+            for(let i = 0; i < text.length; i++){
+                setTimeout(function() {
+                    document.querySelector(".textbox").textContent += text[i];
+                    if(i==text.length-1){
+                        nextButton.style.display = 'block';
+                        console.log(nextButton.style.display)
+                    }
+                }, speed * i);
+
+            };
+        };
+        document.addEventListener("DOMContentLoaded", showText);
+    </script>

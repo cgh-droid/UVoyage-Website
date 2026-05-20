@@ -212,6 +212,43 @@ wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\Photos\051e8afd49caeaf59ca4b4b1574f71dc.jpg
+wwwroot\Photos\bell sketch.png
+wwwroot\Photos\black.png
+wwwroot\Photos\BlueWalkingPlaceholder1.png
+wwwroot\Photos\Chem game sketch.png
+wwwroot\Photos\Chem talk board sketch.png
+wwwroot\Photos\Chem talk c2h6 doodle sketch.png
+wwwroot\Photos\Chem talk calm sketch.png
+wwwroot\Photos\Chem talk communicate sketch.png
+wwwroot\Photos\Chem talk doubt sketch.png
+wwwroot\Photos\Chem talk enter sketch.png
+wwwroot\Photos\Chem talk exit sketch.png
+wwwroot\Photos\Chem talk happy sketch.png
+wwwroot\Photos\Chem talk introduce lab sketch.png
+wwwroot\Photos\Chem talk read sketch.png
+wwwroot\Photos\Chem talk write sketch.png
+wwwroot\Photos\Counselor talk both happy sketch.png
+wwwroot\Photos\Counselor talk calm sketch.png
+wwwroot\Photos\Counselor talk relaxed sketch.png
+wwwroot\Photos\Counselor talk supportive sketch.png
+wwwroot\Photos\Counselor talk unsure sketch.png
+wwwroot\Photos\CounselorBlinking1.GIF
+wwwroot\Photos\English game sketch.png
+wwwroot\Photos\English talk sketch.png
+wwwroot\Photos\HallwayBirdseye1.PNG
 wwwroot\Photos\IMG_1193.jpg
 wwwroot\Photos\IMG_1194.JPG
+wwwroot\Photos\mathgameanimationsketch.mp4
+wwwroot\Photos\Mathtalkconfusedsketch.png
+wwwroot\Photos\Mathtalkhappysketch.png
+wwwroot\Photos\Mathtalklooksketch.png
+wwwroot\Photos\Ss game sketch.mp4
+wwwroot\Photos\Ss talk announce sketch.png
+wwwroot\Photos\Ss talk giving quiz sketch.png
+wwwroot\Photos\Ss talk grading other kid sketch.png
+wwwroot\Photos\Ss talk grading sketch.png
+wwwroot\Photos\Ss talk one sketch.png
+wwwroot\Photos\Ss talk showing grade sketch.png
+wwwroot\Photos\Ss talk three sketch.png
+wwwroot\Photos\Ss talk two sketch.png
 wwwroot\Photos\wide-panoramic-view-of-mountains-during-twilight-sky.png

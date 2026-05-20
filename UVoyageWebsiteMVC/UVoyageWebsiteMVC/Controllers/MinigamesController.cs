@@ -12,6 +12,26 @@ namespace UVoyageWebsiteMVC.Controllers
         {
             return View();
         }
+        public IActionResult mathClass1()
+        {
+            return View();
+        }
+        public IActionResult socialStudiesClass1()
+        {
+            return View();
+        }
+        public IActionResult englishClass1()
+        {
+            return View();
+        }
+        public IActionResult scienceClass1()
+        {
+            return View();
+        }
+        public IActionResult counselorTalk()
+        {
+            return View();
+        }
         public IActionResult minigame2()
         {
             return View();

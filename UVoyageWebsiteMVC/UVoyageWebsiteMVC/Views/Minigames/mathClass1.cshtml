@@ -1,0 +1,344 @@
+﻿@{
+    ViewData["Title"] = "Playing Minigame";
+}
+<style>
+    * {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    body {
+        background-image: linear-gradient(to right, #74ebd5, #ACB6E5);
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #333;
+    }
+
+    h2 {
+        font-size: 2em;
+        color: #555;
+        background-color: #55555533;
+        width: 10em;
+        margin: 0 auto;
+        border: 2px solid #333;
+        border-radius: 5px;
+    }
+
+    #submit {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #answer {
+        font-size: 1.5em;
+        padding: 10px;
+        width: 300px;
+        border: 2px solid #333;
+        border-radius: 5px;
+    }
+
+    #start-button {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #start-button:hover {
+            background-color: #555;
+        }
+
+    #answer-form {
+        margin-top: 20px;
+        display:none;
+    }
+
+    #timer, #score {
+        margin-top: 20px;
+    }
+
+    #timer {
+        color: #e74c3c;
+    }
+
+    #score {
+        color: #27ae60;
+    }
+
+    #start-button {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .textbox {
+        font-family: sans-serif;
+        font-size: 1vw;
+        font-weight: bold;
+        color: aliceblue;
+        background-image: linear-gradient(to right, darkturquoise, deepskyblue,dodgerblue);
+        width: 50vw;
+        height: 5vw;
+        border-radius: 20px;
+        padding: 0.75vw;
+        text-align:left;
+    }
+    .textbox-container{
+        z-index: 2;
+        position: absolute;
+        top: 75%;
+        left: 50vh;
+    }
+    #bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .convo-container {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    #myVideo {
+        z-index: -1;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    .textbox-buttons{
+        display: flex;
+        justify-content: space-between;
+        margin-top:5px;
+    }
+    #next-button{
+        background-color: deepskyblue;
+        border-radius: 7px;
+        border-width: 1px;
+    }
+    #speaker-name{
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(to right, rgb(255 162 50), rgb(255, 200, 111));
+        width: fit-content;
+        text-align: center;
+        margin: 10px auto;
+        color: aliceblue;
+    }
+</style>
+<div class="convo-container convo" >
+    <div class="textbox-container convo">
+        <h3 id="speaker-name" class="convo"><b></b></h3>
+        <div class="textbox convo"></div>
+        <div class="textbox-buttons">
+            <input type="range" min="1" max="100" value="50" id="speed" class="convo">
+            <button id="next-button" onclick="showText()">Next</button>
+        </div>
+    </div>
+    <img id="bg-img" src="" />
+</div>
+<div class="game">
+    <h1 class="game" id="question">Click the start button to begin! (Get 15+ questions right in a row.)</h1>
+    <h2 class="game" id="timer">Time: 0s</h2>
+    <h2 class="game" id="score">Score: 0</h2>
+    <video autoplay muted loop id="myVideo">
+        <source src="~/Photos/mathgameanimationsketch.mp4" type="video/mp4">
+    </video>
+</div>
+<form id="answer-form">
+    <input type="text" placeholder="Type your answer here" id="answer">
+    <input type="submit" id="submit">
+</form>
+<button class="game" id="start-button" onclick="startgame()">Start</button>
+<script>
+    timerText = document.getElementById("timer");
+    questionText = document.getElementById("question");
+    answerForm = document.getElementById("answer-form");
+    answerInput = document.getElementById("answer");
+    scoreText = document.getElementById("score");
+    startButton = document.getElementById("start-button");
+    bgImg = document.getElementById("bg-img");
+    nextButton = document.getElementById("next-button");
+    localStorage.setItem("mathGood", "true");
+    let introDone=false;
+    const gameElements = document.querySelectorAll('.game');
+    const convoElements = document.querySelectorAll('.convo');
+    function toggleToGame(){
+        console.log("game")
+        gameElements.forEach(el => {
+        el.style.display ='block' ;
+        });
+        convoElements.forEach(el => {
+        el.style.display = 'none';
+        });
+    }
+    function toggleToConvo(){
+        console.log("convo")
+        gameElements.forEach(el => {
+        el.style.display = 'none';
+        });
+        convoElements.forEach(el => {
+        el.style.display ='block';
+        });
+        if (introDone){
+            dialogue = [
+            {name: "Classmate", speech:"You're a genius! I can start doing these problems all by myself.",bgImg: "/Photos/Mathtalkhappysketch.png"},
+            {name: "Blue", speech:"Thank you, don't underestimate yourself though. Taking in new information that fast is impressive!",bgImg: "/Photos/Mathtalkhappysketch.png"},
+            {name: "Teacher", speech:"Alright class, listen up.",bgImg: "/Photos/Mathtalklooksketch.png"},
+            {name: "Teacher", speech:"We're going to be learning about the pythagorean theorem and triangles for a bit in preparation for your quiz next week.",bgImg: "/Photos/Mathtalklooksketch.png"},
+            {name: "Classmate", speech:"Oh, you finished just in time. Thanks a bunch!",bgImg: "/Photos/Mathtalkhappysketch.png"}
+            ];
+            console.log(localStorage.getItem("mathGood"));
+            localStorage.setItem("mathDone", "true");
+            showText();
+        }else{
+            dialogue = [
+                {name: "Narrator", speech:"As soon as you sit in your chair, your fellow classmate sitting beside you immediately turns her head to face you.", bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+                {name: "Narrator", speech:"The paper that she's been working on seems to be flooded with numbers and giant X's over in the margins.", bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+                {name: "Classmate", speech:"Hey, Blue...", bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+                {name: "Blue", speech:"Hi!",bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+                {name: "Classmate", speech:"I'm sorry for asking, but could you please help me with these math problems?",bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+                {name: "Classmate", speech:"The steps to get to the answer make no sense.",bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+                {name: "Blue", speech:"Of course.",bgImg: "/Photos/Mathtalkconfusedsketch.png"},
+            ]
+        }
+
+    }
+    toggleToConvo();
+    let score = 0;
+
+    function generateQuestion() {
+
+        if(Math.random() < 0.5){
+            //random + equation
+            num1 = Math.floor(Math.random() * 50) + 1;
+            num2 = Math.floor(Math.random() * 50) + 1;
+            currentAnswer = num1 + num2;
+            questionText.innerText = `What is ${num1} + ${num2}?`;
+        } else {
+            //random - equation
+            num1 = Math.floor(Math.random() * 50) + 1;
+            num2 = Math.floor(Math.random() * 50) + num1;
+            currentAnswer = num2 - num1;
+            questionText.innerText = `What is ${num2} - ${num1}?`;
+        }
+        console.log(currentAnswer);
+    }
+    function updateTimer(){
+            time--;
+            timerText.innerText = `Time: ${time}s`;
+            if (time <= 0) {
+                clearInterval(timer);
+                questionText.innerText = `Time's up! Your final score is ${score}.`;
+                scoreText.innerText = `Score: ${score}`;
+                answerInput.value = "";
+                //startButton.hidden = false;
+                startButton.style.display="block";
+                answerForm.style.display="none";
+                if (score>=15){
+                    introDone=true;
+                    toggleToConvo();
+                }else{
+                    localStorage.setItem("mathGood", "false");
+                }
+            }
+    }
+    function startTimer() {
+        time = 10;
+        timerText.innerText = `Time: ${time}s`;
+        timer = setInterval(updateTimer, 1000);
+    }
+
+    function startgame(){
+        time = 10;
+        score = 0;
+        currentAnswer = 0;
+        generateQuestion();
+        startTimer();
+        //startButton.hidden = true;
+        scoreText.innerText = `Score: ${score}`;
+        startButton.style.display="none";
+        answerForm.style.display="block";
+    }
+
+    answerForm.onsubmit = function(e) {
+        e.preventDefault();
+        if (parseInt(answerInput.value) === currentAnswer) {
+            score++;
+            scoreText.innerText = `Score: ${score}`;
+            answerInput.value = "";
+            generateQuestion();
+            time = 11; // Reset timer
+            updateTimer();
+        }
+
+    };
+    let currentDialogue = '';
+    let dialogueIndex=0;
+    function nextDialogue(){
+        if(dialogueIndex < dialogue.length){
+            bgImg.src = dialogue[dialogueIndex].bgImg;
+            if(currentDialogue ==''){
+                currentDialogue = dialogue[0];
+            }else{
+                currentDialogue=dialogue[dialogueIndex];
+            }
+            dialogueIndex++;
+            return currentDialogue;
+        }else{
+            if(introDone){
+                window.location.href = "@Url.Action("minigame1", "Minigames")";
+            }else{
+                toggleToGame();
+                currentDialogue = '';
+                dialogueIndex=0;
+            }
+            return {name:"", speech:""};
+        }
+    }
+    function showText(){
+        nextButton.style.display = 'none';
+        console.log(nextButton.style.display)
+        let shownDialogue = nextDialogue();
+        let speed = document.getElementById("speed").value; // time for individual letters to appear
+        document.querySelector("#speaker-name").textContent = shownDialogue.name;
+        let text = shownDialogue.speech;
+        document.querySelector(".textbox").textContent = "";
+        for(let i = 0; i < text.length; i++){
+            setTimeout(function() {
+                document.querySelector(".textbox").textContent += text[i];
+                if(i==text.length-1){
+                    nextButton.style.display = 'block';
+                    console.log(nextButton.style.display)
+                }
+            }, speed * i);
+
+        };
+
+
+    };
+    document.addEventListener("DOMContentLoaded", showText);
+
+</script>

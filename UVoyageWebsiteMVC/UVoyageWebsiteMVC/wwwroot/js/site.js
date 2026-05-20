@@ -1,4 +1,9 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function setVariables() {
+    ["mathDone", "scienceDone", "englishDone", "socialStudiesDone", "mathGood", "englishGood", "socialStudiesGood"]
+        .forEach(key => {
+            if (localStorage.getItem(key) === null) {
+                localStorage.setItem(key, "false");
+            }
+        });
+}
+document.addEventListener("DOMContentLoaded", setVariables());

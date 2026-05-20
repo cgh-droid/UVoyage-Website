@@ -236,6 +236,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhSZWRpcmVjdHNcd2h5Sm9pblVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/counselorTalk.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXGNvdW5zZWxvclRhbGsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/englishClass1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXGVuZ2xpc2hDbGFzczEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/mathClass1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1hdGhDbGFzczEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/minigame1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -260,6 +272,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXG1pbmlnYW1lTWFpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/scienceClass1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXHNjaWVuY2VDbGFzczEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Minigames/socialStudiesClass1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluaWdhbWVzXHNvY2lhbFN0dWRpZXNDbGFzczEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/More/ourMembers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9yZVxvdXJNZW1iZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -274,6 +294,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Shared/_ConvoGameSwitch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db252b0dhbWVTd2l0Y2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/home2/Documents/GitHub/UVoyage-Website/UVoyageWebsiteMVC/UVoyageWebsiteMVC/Views/Shared/_LoginPartial.cshtml]
