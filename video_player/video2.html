@@ -8,42 +8,93 @@
 </head>
 <body>
     <a href="index.html"><button id="menu-button">Back to Home</button></a>
-    
+    <label for="lang-select">Choose a language:</label>
+    <select id="lang-select">
+        <option value="ja">Japanese</option>
+        <option value="en">English</option>
+    </select>
 
     <video width="640" height="360" controls id="video">
         <source src="./assets/video2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <ol reversed class="subtitle-section">
-        <li class="subtitle" id="subtitle4">
+    <ul reversed class="subtitle-section">
+        <li class="subtitle" id="subtitle1">
             <h2 onclick="alterTime(document.getElementById('video'), 15)">[00:15]</h2>
             <p>引き抜くカセット</p>
         </li>
-        <li class="subtitle" id="subtitle3">
+        <li class="subtitle" id="subtitle2">
             <h2 onclick="alterTime(document.getElementById('video'), 18)">[00:18]</h2>
             <p>押し込むリセット</p>
         </li>
-        <li class="subtitle" id="subtitle2">
+        <li class="subtitle" id="subtitle3">
             <h2 onclick="alterTime(document.getElementById('video'), 21)">[00:21]</h2>
             <p>迷い込む迷路</p>
         </li>
-        <li class="subtitle" id="subtitle1">
+        <li class="subtitle" id="subtitle4">
             <h2 onclick="alterTime(document.getElementById('video'), 24)">[00:24]</h2>
             <p>進めどもダルセーニョ</p>
         </li>
-    </ol>
+        <li class="subtitle" id="subtitle5">
+            <h2 onclick="alterTime(document.getElementById('video'), 26.5)">[00:26]</h2>
+            <p>ドアの先に僕の背中が見えた</p>
+        </li>
+        <li class="subtitle" id="subtitle6">
+            <h2 onclick="alterTime(document.getElementById('video'), 29)">[00:29]</h2>
+            <p>振り向いた先に希望が見えた</p>
+        </li>
+         <li class="subtitle" id="subtitle7">
+            <h2 onclick="alterTime(document.getElementById('video'), 32)">[00:32]</h2>
+            <p>地獄の果てなどどこにあるのか</p>
+        </li>
+        <li class="subtitle" id="subtitle8">
+            <h2 onclick="alterTime(document.getElementById('video'), 35)">[00:35]</h2>
+            <p>出口はまだなの？</p>
+        </li>
+    </ul>
     <script>
         const video = document.getElementById('video');
         const subtitle1 = document.getElementById('subtitle1');
         const subtitle2 = document.getElementById('subtitle2');
         const subtitle3 = document.getElementById('subtitle3');
         const subtitle4 = document.getElementById('subtitle4');
+        const subtitle5 = document.getElementById('subtitle5');
+        const subtitle6 = document.getElementById('subtitle6');
+        const subtitle7 = document.getElementById('subtitle7');
+        const subtitle8 = document.getElementById('subtitle8');
+        const langSelect = document.getElementById('lang-select');
+        langSelect.addEventListener('change', () => {
+            const selectedLang = langSelect.value;
+            if (selectedLang === 'ja') {
+                subtitle1.querySelector('p').textContent = '引き抜くカセット';
+                subtitle2.querySelector('p').textContent = '押し込むリセット';
+                subtitle3.querySelector('p').textContent = '迷い込む迷路';
+                subtitle4.querySelector('p').textContent = '進めどもダルセーニョ';
+                subtitle5.querySelector('p').textContent = 'ドアの先に僕の背中が見えた';
+                subtitle6.querySelector('p').textContent = '振り向いた先に希望が見えた';
+                subtitle7.querySelector('p').textContent = '地獄の果てなどどこにあるのか';
+                subtitle8.querySelector('p').textContent = '出口はまだなの？';
+            } else if (selectedLang === 'en') {
+                subtitle1.querySelector('p').textContent = 'Pull out the cassette';
+                subtitle2.querySelector('p').textContent = 'Push in the reset';
+                subtitle3.querySelector('p').textContent = 'Lost in the maze';
+                subtitle4.querySelector('p').textContent = 'Even if I go forward, it\'s a Dalseño';
+                subtitle5.querySelector('p').textContent = 'I saw my back beyond the door';
+                subtitle6.querySelector('p').textContent = 'I saw hope when I turned around';
+                subtitle7.querySelector('p').textContent = 'Where is the end of hell?';
+                subtitle8.querySelector('p').textContent = 'Isn\'t there an exit yet?';
+            }
+        });
         video.addEventListener('timeupdate', () => {
             const currentTime = video.currentTime;
-            currentTime >= 15 ? subtitle4.style.display = 'block' : subtitle4.style.display = 'none';
-            currentTime >= 18 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
-            currentTime >= 21 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
-            currentTime >= 24 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+            currentTime >= 15 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+            currentTime >= 18 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
+            currentTime >= 21 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
+            currentTime >= 24 ? subtitle4.style.display = 'block' : subtitle4.style.display = 'none';
+            currentTime >= 26.5 ? subtitle5.style.display = 'block' : subtitle5.style.display = 'none';
+            currentTime >= 29 ? subtitle6.style.display = 'block' : subtitle6.style.display = 'none';
+            currentTime >= 32 ? subtitle7.style.display = 'block' : subtitle7.style.display = 'none';
+            currentTime >= 35 ? subtitle8.style.display = 'block' : subtitle8.style.display = 'none';
         });
         function alterTime(video, seconds) {
             video.currentTime = seconds;

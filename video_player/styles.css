@@ -41,3 +41,7 @@ video {
     color: #a0a0a0;
     margin-top: 10px;
 }
+.subtitle-section {
+    display: flex;
+    flex-direction: column-reverse;
+}
