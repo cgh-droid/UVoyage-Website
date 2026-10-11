@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html"><button id="menu-button">Back to Home</button></a>
+    
+
+    <video width="640" height="360" controls id="video">
+        <source src="./assets/video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <ol reversed class="subtitle-section">
+        <li class="subtitle" id="subtitle4">
+            <h2 onclick="alterTime(document.getElementById('video'), 15)">[00:15]</h2>
+            <p>引き抜くカセット</p>
+        </li>
+        <li class="subtitle" id="subtitle3">
+            <h2 onclick="alterTime(document.getElementById('video'), 18)">[00:18]</h2>
+            <p>押し込むリセット</p>
+        </li>
+        <li class="subtitle" id="subtitle2">
+            <h2 onclick="alterTime(document.getElementById('video'), 21)">[00:21]</h2>
+            <p>迷い込む迷路</p>
+        </li>
+        <li class="subtitle" id="subtitle1">
+            <h2 onclick="alterTime(document.getElementById('video'), 24)">[00:24]</h2>
+            <p>進めどもダルセーニョ</p>
+        </li>
+    </ol>
+    <script>
+        const video = document.getElementById('video');
+        const subtitle1 = document.getElementById('subtitle1');
+        const subtitle2 = document.getElementById('subtitle2');
+        const subtitle3 = document.getElementById('subtitle3');
+        const subtitle4 = document.getElementById('subtitle4');
+        video.addEventListener('timeupdate', () => {
+            const currentTime = video.currentTime;
+            currentTime >= 15 ? subtitle4.style.display = 'block' : subtitle4.style.display = 'none';
+            currentTime >= 18 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
+            currentTime >= 21 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
+            currentTime >= 24 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+        });
+        function alterTime(video, seconds) {
+            video.currentTime = seconds;
+            video.play();
+        }
+    </script>
+</body>
+</html>

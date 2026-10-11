@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html"><button id="menu-button">Back to Home</button></a>
+
+    <video width="640" height="360" fullscreen controls id="video">
+        <source src="./assets/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <ol reversed class="subtitle-section">
+
+        <li class="subtitle" id="subtitle1">
+            <h2 onclick="alterTime(document.getElementById('video'), 2)">[00:02]</h2>
+            <p>Hey, it's me, it's Verity!</p>
+        </li>
+        <li class="subtitle" id="subtitle2">
+            <h2 onclick="alterTime(document.getElementById('video'), 5)">[00:05]</h2>
+            <p>Ask me ANYTHING!</p>
+        </li>
+        <li class="subtitle" id="subtitle3">
+            <h2 onclick="alterTime(document.getElementById('video'), 9)">[00:09]</h2>
+            <p>I know about a million things.</p>
+        </li>
+    </ul>
+    <script>
+        const video = document.getElementById('video');
+        const subtitle1 = document.getElementById('subtitle1');
+        const subtitle2 = document.getElementById('subtitle2');
+        const subtitle3 = document.getElementById('subtitle3');
+        video.addEventListener('timeupdate', () => {
+            const currentTime = video.currentTime;
+            currentTime >= 2 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+            currentTime >= 5 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
+            currentTime >= 9 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
+        });
+        function alterTime(video, seconds) {
+            video.currentTime = seconds;
+            video.play();
+        }
+    </script>
+</body>
+</html>
