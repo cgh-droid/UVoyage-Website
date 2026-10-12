@@ -13,21 +13,22 @@
         <source src="./assets/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <ul reversed class="subtitle-section">
-
-        <li class="subtitle" id="subtitle1">
-            <h2 onclick="alterTime(document.getElementById('video'), 2)">[00:02]</h2>
+    <h1>Subtitles</h1>
+    <div reversed class="subtitle-section">
+        
+        <div class="subtitle" id="subtitle1" onclick="alterTime(document.getElementById('video'), 2)">
+            <h2 >[00:02]</h2>
             <p>Hey, it's me, it's Verity!</p>
-        </li>
-        <li class="subtitle" id="subtitle2">
-            <h2 onclick="alterTime(document.getElementById('video'), 5)">[00:05]</h2>
+        </div>
+        <div class="subtitle" id="subtitle2" onclick="alterTime(document.getElementById('video'), 5)">
+            <h2 >[00:05]</h2>
             <p>Ask me ANYTHING!</p>
-        </li>
-        <li class="subtitle" id="subtitle3">
-            <h2 onclick="alterTime(document.getElementById('video'), 9)">[00:09]</h2>
+        </div>
+        <div class="subtitle" id="subtitle3" onclick="alterTime(document.getElementById('video'), 9)">
+            <h2 >[00:09]</h2>
             <p>I know about a million things.</p>
-        </li>
-    </ul>
+        </div>
+    </div>
     <script>
         const video = document.getElementById('video');
         const subtitle1 = document.getElementById('subtitle1');

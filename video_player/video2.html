@@ -7,51 +7,55 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html"><button id="menu-button">Back to Home</button></a>
+    <div id="menu">
+        <a href="index.html"><button id="menu-button">Back to Home</button></a>
     <label for="lang-select">Choose a language:</label>
     <select id="lang-select">
         <option value="ja">Japanese</option>
         <option value="en">English</option>
     </select>
+    </div>
 
     <video width="640" height="360" controls id="video">
         <source src="./assets/video2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <ul reversed class="subtitle-section">
-        <li class="subtitle" id="subtitle1">
-            <h2 onclick="alterTime(document.getElementById('video'), 15)">[00:15]</h2>
+    <h1>Subtitles</h1>
+    <div reversed class="subtitle-section">
+        
+        <div class="subtitle" id="subtitle1" onclick="alterTime(document.getElementById('video'), 15)">
+            <h2 >[00:15]</h2>
             <p>引き抜くカセット</p>
-        </li>
-        <li class="subtitle" id="subtitle2">
-            <h2 onclick="alterTime(document.getElementById('video'), 18)">[00:18]</h2>
+        </div>
+        <div class="subtitle" id="subtitle2" onclick="alterTime(document.getElementById('video'), 18)">
+            <h2 >[00:18]</h2>
             <p>押し込むリセット</p>
-        </li>
-        <li class="subtitle" id="subtitle3">
-            <h2 onclick="alterTime(document.getElementById('video'), 21)">[00:21]</h2>
+        </div>
+        <div class="subtitle" id="subtitle3" onclick="alterTime(document.getElementById('video'), 21)">
+            <h2 >[00:21]</h2>
             <p>迷い込む迷路</p>
-        </li>
-        <li class="subtitle" id="subtitle4">
-            <h2 onclick="alterTime(document.getElementById('video'), 24)">[00:24]</h2>
+        </div>
+        <div class="subtitle" id="subtitle4" onclick="alterTime(document.getElementById('video'), 24)">
+            <h2 >[00:24]</h2>
             <p>進めどもダルセーニョ</p>
-        </li>
-        <li class="subtitle" id="subtitle5">
-            <h2 onclick="alterTime(document.getElementById('video'), 26.5)">[00:26]</h2>
+        </div>
+        <div class="subtitle" id="subtitle5" onclick="alterTime(document.getElementById('video'), 26.5)">
+            <h2 >[00:26]</h2>
             <p>ドアの先に僕の背中が見えた</p>
-        </li>
-        <li class="subtitle" id="subtitle6">
-            <h2 onclick="alterTime(document.getElementById('video'), 29)">[00:29]</h2>
+        </div>
+        <div class="subtitle" id="subtitle6" onclick="alterTime(document.getElementById('video'), 29)">
+            <h2 >[00:29]</h2>
             <p>振り向いた先に希望が見えた</p>
-        </li>
-         <li class="subtitle" id="subtitle7">
-            <h2 onclick="alterTime(document.getElementById('video'), 32)">[00:32]</h2>
+        </div>
+        <div class="subtitle" id="subtitle7" onclick="alterTime(document.getElementById('video'), 32)">
+            <h2 >[00:32]</h2>
             <p>地獄の果てなどどこにあるのか</p>
-        </li>
-        <li class="subtitle" id="subtitle8">
-            <h2 onclick="alterTime(document.getElementById('video'), 35)">[00:35]</h2>
+        </div>
+        <div class="subtitle" id="subtitle8" onclick="alterTime(document.getElementById('video'), 35)">
+            <h2 >[00:35]</h2>
             <p>出口はまだなの？</p>
-        </li>
-    </ul>
+        </div>
+    </div>
     <script>
         const video = document.getElementById('video');
         const subtitle1 = document.getElementById('subtitle1');
