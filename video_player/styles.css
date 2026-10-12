@@ -4,8 +4,6 @@ body{
     font-family: Arial, sans-serif;
     background-color: #101010;
     color: white;
-    margin-left: 40%;
-    margin-right: auto;
 }
 img.preview-image {
     width: 80%;
@@ -14,27 +12,38 @@ img.preview-image {
     margin-top: 20px;
 }
 video {
-    width: 80%;
-    max-width: 600px;
-    height: auto;
-    margin-top: 3%;
+    margin-left: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     border-radius: 10px;
 }
 #video{
     position: relative;
     z-index: 1;
 }
+#video-container{
+    display: flex;
+    justify-content: center;
+    margin-left: -10%;
+}
 #video-ambient {
     position: absolute;
-    top: 0;
-    left: 40%;
+    top: 5%;
+    left: 30%;
+    border-radius: 10px;
     transform: scale(1.1);
     filter: blur(40px) saturate(1.5) brightness(0.7);
     object-fit: cover;
-    z-index: 0;
+    z-index: -999;
     opacity: 0.5;
 }
-#menu-button {
+#menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+#menu-button, #toggle-ambience, #toggle-subtitles {
     background-color: #4CAF50;
     color: #f0f0f0;
     max-width: 600px;
@@ -44,14 +53,24 @@ video {
     cursor: pointer;
     font-size: 16px;
 }
-#menu-button:hover {
+select {
+    background-color: #4CAF50;
+    color: #f0f0f0;
+    max-width: 600px;
+    height: 5%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#menu-button:hover, #toggle-ambience:hover, #toggle-subtitles:hover, select:hover {
     background-color: #45a049;
 }
 .subtitle {
     background-color: #333;
-    width: 80%;
-    max-width: 600px;
+    width: 200px;
     padding: 5px;
+    margin: 5px;
     border-radius: 5px;
     font-size: 14px;
     color: #a0a0a0;
@@ -65,7 +84,16 @@ video {
 #subtitle-label {
     max-width: 600px;
 }
-.subtitle-section {
+#subtitle-container {
     display: flex;
     flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.subtitle-section {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 240px;
+    margin-bottom: auto;
 }

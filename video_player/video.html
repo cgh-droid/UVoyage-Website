@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="index.html"><button id="menu-button">Back to Home</button></a>
+    <div id="menu">
+        <a href="index.html"><button id="menu-button">Back to Home</button></a>
+        <button id="toggle-ambience" onclick="toggleAmbient()">Ambient Video: On</button>
+    </div>
 
-    <video width="640" height="360" fullscreen controls id="video">
+    <video width="960" height="540" fullscreen controls id="video">
         <source src="./assets/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <video width="640" height="360" muted playsinline id="video-ambient">
+    <video width="960" height="540" muted playsinline id="video-ambient">
         <source src="./assets/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <h1>Subtitles</h1>
+    <h1 id="subtitle-label">Subtitles</h1>
     <div reversed class="subtitle-section">
         
         <div class="subtitle" id="subtitle1" onclick="alterTime(document.getElementById('video'), 2)">
@@ -36,17 +39,54 @@
     <script>
         const video = document.getElementById('video');
         const ambientVideo = document.getElementById('video-ambient');
+        const toggleButton = document.getElementById('toggle-subtitles');
+        const subtitleSection = document.querySelector('.subtitle-section');
+        const subtitleLabel = document.getElementById('subtitle-label');
         const subtitle1 = document.getElementById('subtitle1');
         const subtitle2 = document.getElementById('subtitle2');
         const subtitle3 = document.getElementById('subtitle3');
+        let ambientEnabled = true;
+        let subtitlesEnabled = true;
         function alterTime(video, seconds) {
             video.currentTime = seconds;
             video.play();
         }
+        function toggleAmbient() {
+            ambientEnabled = !ambientEnabled;
+            const toggleButton = document.getElementById('toggle-ambience');
+            if (ambientEnabled) {
+                ambientVideo.style.opacity = 0.6;
+                toggleButton.textContent = 'Ambient Video: On';
+                toggleButton.style.backgroundColor = '#4CAF50'; // Change button color to green when on
+            } else {
+                ambientVideo.style.opacity = 0;
+                toggleButton.textContent = 'Ambient Video: Off';
+                toggleButton.style.backgroundColor = '#f44336'; // Change button color to red when off
+            }
+        }
+            subtitlesEnabled = !subtitlesEnabled;
+            if (subtitlesEnabled) {
+                for (let i = subtitleSection.children.length; i >= 0; i--) {
+                    subtitleSection.children[i].style.display = 'block';
+                }
+                subtitleLabel.style.display = 'block';
+                toggleButton.textContent = 'Subtitles: On';
+                toggleButton.style.backgroundColor = '#4CAF50'; // Change button color to green when on
+                
+            } else {
+                for (let i = 0; i < subtitleSection.children.length; i++) {
+                    subtitleSection.children[i].style.display = 'none';
+                }
+                subtitleLabel.style.display = 'none';
+                toggleButton.textContent = 'Subtitles: Off';
+                toggleButton.style.backgroundColor = '#f44336'; // Change button color to red when off
+                toggleButton.style.hover.backgroundColor = '#C6180B'; // Change button color to red when off
+            }
+        
         video.addEventListener('timeupdate', () => {
             const currentTime = video.currentTime;
             ambientVideo.currentTime = currentTime;
-            currentTime >= 2 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+            currentTime >= 2 ? subtitle1.style.display = 'block'  : subtitle1.style.display = 'none';
             currentTime >= 5 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
             currentTime >= 9 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
         });

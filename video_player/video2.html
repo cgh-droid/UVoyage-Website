@@ -9,60 +9,66 @@
 <body>
     <div id="menu">
         <a href="index.html"><button id="menu-button">Back to Home</button></a>
-    <label for="lang-select">Choose a language:</label>
+        <button id="toggle-ambience" onclick="toggleAmbient()">Ambient Video: On</button>
+        <label for="lang-select">Choose a language:</label>
     <select id="lang-select">
         <option value="ja">Japanese</option>
         <option value="en">English</option>
     </select>
     </div>
-
-    <video width="640" height="360" controls id="video">
+<div id="video-container">  
+    <div class="subtitle-section">
+        <div id="subtitle-container">
+                <div class="subtitle" id="subtitle1" onclick="alterTime(document.getElementById('video'), 15)">
+                <h2 >[00:15]</h2>
+                <p>引き抜くカセット</p>
+            </div>
+            <div class="subtitle" id="subtitle2" onclick="alterTime(document.getElementById('video'), 18)">
+                <h2 >[00:18]</h2>
+                <p>押し込むリセット</p>
+            </div>
+            <div class="subtitle" id="subtitle3" onclick="alterTime(document.getElementById('video'), 21)">
+               <h2 >[00:21]</h2>
+               <p>迷い込む迷路</p>
+            </div>
+            <div class="subtitle" id="subtitle4" onclick="alterTime(document.getElementById('video'), 24)">
+               <h2 >[00:24]</h2>
+               <p>進めどもダルセーニョ</p>
+            </div>
+            <div class="subtitle" id="subtitle5" onclick="alterTime(document.getElementById('video'), 26.5)">
+                <h2 >[00:26]</h2>
+                <p>ドアの先に僕の背中が見えた</p>
+            </div>
+            <div class="subtitle" id="subtitle6" onclick="alterTime(document.getElementById('video'), 29)">
+                <h2 >[00:29]</h2>
+                <p>振り向いた先に希望が見えた</p>
+            </div>
+            <div class="subtitle" id="subtitle7" onclick="alterTime(document.getElementById('video'), 32)">
+                <h2 >[00:32]</h2>
+                <p>地獄の果てなどどこにあるのか</p>
+            </div>
+            <div class="subtitle" id="subtitle8" onclick="alterTime(document.getElementById('video'), 35)">
+                <h2 >[00:35]</h2>
+                <p>出口はまだなの？</p>
+            </div>
+            </div>
+        </div>
+    <video width="960" height="540" controls id="video">
         <source src="./assets/video2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <video width="640" height="360" muted playsinline id="video-ambient">
-        <source src="./assets/video.mp4" type="video/mp4">
+    <video width="960" height="540" muted playsinline id="video-ambient">
+        <source src="./assets/video2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <h1 id="subtitle-label">Subtitles</h1>
-    <div reversed class="subtitle-section">
-        
-        <div class="subtitle" id="subtitle1" onclick="alterTime(document.getElementById('video'), 15)">
-            <h2 >[00:15]</h2>
-            <p>引き抜くカセット</p>
-        </div>
-        <div class="subtitle" id="subtitle2" onclick="alterTime(document.getElementById('video'), 18)">
-            <h2 >[00:18]</h2>
-            <p>押し込むリセット</p>
-        </div>
-        <div class="subtitle" id="subtitle3" onclick="alterTime(document.getElementById('video'), 21)">
-            <h2 >[00:21]</h2>
-            <p>迷い込む迷路</p>
-        </div>
-        <div class="subtitle" id="subtitle4" onclick="alterTime(document.getElementById('video'), 24)">
-            <h2 >[00:24]</h2>
-            <p>進めどもダルセーニョ</p>
-        </div>
-        <div class="subtitle" id="subtitle5" onclick="alterTime(document.getElementById('video'), 26.5)">
-            <h2 >[00:26]</h2>
-            <p>ドアの先に僕の背中が見えた</p>
-        </div>
-        <div class="subtitle" id="subtitle6" onclick="alterTime(document.getElementById('video'), 29)">
-            <h2 >[00:29]</h2>
-            <p>振り向いた先に希望が見えた</p>
-        </div>
-        <div class="subtitle" id="subtitle7" onclick="alterTime(document.getElementById('video'), 32)">
-            <h2 >[00:32]</h2>
-            <p>地獄の果てなどどこにあるのか</p>
-        </div>
-        <div class="subtitle" id="subtitle8" onclick="alterTime(document.getElementById('video'), 35)">
-            <h2 >[00:35]</h2>
-            <p>出口はまだなの？</p>
-        </div>
-    </div>
+</div>
+
     <script>
         const video = document.getElementById('video');
         const ambientVideo = document.getElementById('video-ambient');
+        const toggleButton = document.getElementById('toggle-subtitles');
+        const subtitleSection = document.querySelector('.subtitle-section');
+        const subtitleLabel = document.getElementById('subtitle-label');
         const subtitle1 = document.getElementById('subtitle1');
         const subtitle2 = document.getElementById('subtitle2');
         const subtitle3 = document.getElementById('subtitle3');
@@ -72,7 +78,8 @@
         const subtitle7 = document.getElementById('subtitle7');
         const subtitle8 = document.getElementById('subtitle8');
         const langSelect = document.getElementById('lang-select');
-        ambientVideo.currentTime = video.currentTime;
+        let ambientEnabled = true;
+        let subtitlesEnabled = true;
         langSelect.addEventListener('change', () => {
             const selectedLang = langSelect.value;
             if (selectedLang === 'ja') {
@@ -97,15 +104,29 @@
         });
         video.addEventListener('timeupdate', () => {
             const currentTime = video.currentTime;
-            currentTime >= 15 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+            ambientVideo.currentTime = video.currentTime;
+            currentTime >= 15  ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
             currentTime >= 18 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
-            currentTime >= 21 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
-            currentTime >= 24 ? subtitle4.style.display = 'block' : subtitle4.style.display = 'none';
+            currentTime >= 21? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
+            currentTime >= 24  ? subtitle4.style.display = 'block' : subtitle4.style.display = 'none';
             currentTime >= 26.5 ? subtitle5.style.display = 'block' : subtitle5.style.display = 'none';
             currentTime >= 29 ? subtitle6.style.display = 'block' : subtitle6.style.display = 'none';
             currentTime >= 32 ? subtitle7.style.display = 'block' : subtitle7.style.display = 'none';
             currentTime >= 35 ? subtitle8.style.display = 'block' : subtitle8.style.display = 'none';
         });
+        function toggleAmbient() {
+            ambientEnabled = !ambientEnabled;
+            const toggleButton = document.getElementById('toggle-ambience');
+            if (ambientEnabled) {
+                ambientVideo.style.opacity = 0.6;
+                toggleButton.textContent = 'Ambient Video: On';
+                toggleButton.style.backgroundColor = '#4CAF50'; // Change button color to green when on
+            } else {
+                ambientVideo.style.opacity = 0;
+                toggleButton.textContent = 'Ambient Video: Off';
+                toggleButton.style.backgroundColor = '#f44336'; // Change button color to red when off
+            }
+        }
         function alterTime(video, seconds) {
             video.currentTime = seconds;
             video.play();
