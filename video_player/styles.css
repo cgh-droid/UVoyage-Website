@@ -5,6 +5,7 @@ body{
     background-color: #101010;
     color: white;
     margin-left: 40%;
+    margin-right: auto;
 }
 img.preview-image {
     width: 80%;
@@ -16,7 +17,22 @@ video {
     width: 80%;
     max-width: 600px;
     height: auto;
-    margin-top: 20px;
+    margin-top: 3%;
+    border-radius: 10px;
+}
+#video{
+    position: relative;
+    z-index: 1;
+}
+#video-ambient {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    transform: scale(1.1);
+    filter: blur(40px) saturate(1.5) brightness(0.7);
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.5;
 }
 #menu-button {
     background-color: #4CAF50;
@@ -45,6 +61,9 @@ video {
     background-color: #999;
     color: #f0f0f0;
     cursor: pointer;
+}
+#subtitle-label {
+    max-width: 600px;
 }
 .subtitle-section {
     display: flex;

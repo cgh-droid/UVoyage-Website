@@ -13,6 +13,10 @@
         <source src="./assets/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    <video width="640" height="360" muted playsinline id="video-ambient">
+        <source src="./assets/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <h1>Subtitles</h1>
     <div reversed class="subtitle-section">
         
@@ -31,19 +35,22 @@
     </div>
     <script>
         const video = document.getElementById('video');
+        const ambientVideo = document.getElementById('video-ambient');
         const subtitle1 = document.getElementById('subtitle1');
         const subtitle2 = document.getElementById('subtitle2');
         const subtitle3 = document.getElementById('subtitle3');
-        video.addEventListener('timeupdate', () => {
-            const currentTime = video.currentTime;
-            currentTime >= 2 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
-            currentTime >= 5 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
-            currentTime >= 9 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
-        });
         function alterTime(video, seconds) {
             video.currentTime = seconds;
             video.play();
         }
+        video.addEventListener('timeupdate', () => {
+            const currentTime = video.currentTime;
+            ambientVideo.currentTime = currentTime;
+            currentTime >= 2 ? subtitle1.style.display = 'block' : subtitle1.style.display = 'none';
+            currentTime >= 5 ? subtitle2.style.display = 'block' : subtitle2.style.display = 'none';
+            currentTime >= 9 ? subtitle3.style.display = 'block' : subtitle3.style.display = 'none';
+        });
+        
     </script>
 </body>
 </html>
